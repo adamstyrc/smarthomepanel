@@ -1,0 +1,36 @@
+import QtQuick 2.0
+
+Item {
+    id: cardContent
+
+    width: 80*u
+    height: 80*u
+
+    property bool value : true
+
+    Rectangle {
+        width: parent.width - 5*u
+        height: parent.height - 5*u
+        anchors.centerIn: parent
+        color: "#5e5751"
+
+        Image {
+            id: icon
+            source: "img/temperature_icon"
+            width: 40*u
+            height: 40*u
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+        }
+
+        Text {
+            anchors.right: parent.right
+            anchors.left: icon.right
+            anchors.verticalCenter: parent.verticalCenter
+            font.pixelSize: 14*u
+            text: "18°C"
+//                text: /*index + " C | "*/ + Screen.toString()
+            wrapMode: Text.WrapAnywhere
+        }
+    }
+}

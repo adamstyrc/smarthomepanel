@@ -1,101 +1,64 @@
-import QtQuick 2.2
+import QtQuick 2.0
 import QtQuick.Window 2.1
+import QtQuick.Layouts 1.1
 
 Window {
-    visible: true
     width: 600
     height: 600
     id: root
+    color: "#6d625c"
+    visible: true
 
-    PathView {
+    property int u: 1
+    property int minWidth: 80
+    property int cardWidth: 80
+
+    Flickable {
+        flickableDirection: Flickable.VerticalFlick
         anchors.fill: parent
-        model: 100
-        clip: false
-        pathItemCount: 6
-        delegate: flipCardDelegate
-        highlightRangeMode: PathView.StrictlyEnforceRange
-//        preferredHighlightBegin: PathView.ApplyRange
-        path: Path {
-            startX: -32; startY: 100
-            PathQuad { x: 632; y: 100; controlX: 300; controlY: 200 }
-        }
-    }
+        contentWidth: parent.width; contentHeight: grid.implicitHeight
 
-    ListView {
-        id: list
-//        anchors.fill: parent
-        anchors.bottom: parent.bottom
-        anchors.top: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.right: parent.right
-        spacing: 50
-        clip: false
-        orientation: ListView.Horizontal
-        model: 100
-        delegate: listDelegate
-        highlightRangeMode: ListView.StrictlyEnforceRange
-        focus: true
-        highlight: Rectangle {
-            radius: 5
-            color: "lightsteelblue"
-            width: list.currentItem.width + 20
-        }
-    }
+        Flow {
+            anchors.fill: parent
+            id: grid
 
-    Component {
-        id: listDelegate
+            Repeater {
+                model: DeviceListTest {}
 
-        Item {
-            width: 64
-            height: 64
+                LightCard {
+                    width: cardWidth
+                    height: cardWidth
+                    value: type == 1
+                }
+            }
 
-            Rectangle {
-                anchors.fill: parent
-                color: "lightGray"
-                border.color: "black"
-                border.width: 3
+            Repeater {
+                model: DeviceListTest {}
 
-                Text {
-                    anchors.centerIn: parent
-                    text: index
-                    font.pixelSize: 30
+                TemperatureCard {
+                    width: cardWidth
+                    height: cardWidth
+                    value: type == 1
                 }
             }
         }
     }
 
-    Component {
-        id: flipCardDelegate
+    Component.onCompleted: {
+        u = Math.floor(Screen.logicalPixelDensity)
 
-        Item {
-            id: wrapper
-
-//            scale: PathView.iconScale
-//            opacity: PathView.iconOpacity
-
-            width: 64
-            height: 64
-
-            visible: PathView.onPath
-
-//            scale: PathView.itemScale
-//            z: PathView.itemZ
-
-//            property variant rotX: PathView.itemAngle
-//            transform: Rotation { axis { x: 1; y: 0; z: 0 } angle: wrapper.rotX; origin { x: 32; y: 32; } }
-
-            Rectangle {
-                anchors.fill: parent
-                color: "lightGray"
-                border.color: "black"
-                border.width: 3
-            }
-
-            Text {
-                anchors.centerIn: parent
-                text: index
-                font.pixelSize: 30
-            }
-        }
+        var containerWidth = Screen.width;
+        var columnsCount = Math.floor(containerWidth / (minWidth * u));
+        cardWidth = (containerWidth/ columnsCount);
     }
+
+
+    Screen.onHeightChanged: {
+        console.log("onHeightChanged " + Screen.logicalPixelDensity + " " + Screen.pixelDensity);
+
+        var containerWidth = Screen.width;
+        var columnsCount = Math.floor(containerWidth / (minWidth * u));
+        cardWidth = (containerWidth/ columnsCount);
+    }
+
 }
