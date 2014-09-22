@@ -6,8 +6,8 @@ Item {
     property int minWidth: 80
     property int minHeight: 80
 
-    width: 80*u
-    height: 80*u
+    width: cardWidth
+    height: cardWidth
 
     property bool value : true
 
@@ -20,8 +20,8 @@ Item {
         Image {
             id: icon
             source: "img/light_icon"
-            width: 40*u
-            height: 40*u
+            width: (parent.width - 5*u) / 2
+            height: (parent.width - 5*u) / 2
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
         }
