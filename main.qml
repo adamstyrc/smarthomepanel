@@ -1,103 +1,51 @@
 import QtQuick 2.0
 import QtQuick.Window 2.1
-import QtQuick.Layouts 1.1
 
 Window {
+    id: root
     width: 600
     height: 600
-    id: root
-    color: "#6d625c"
     visible: true
 
     property int u: 1
-    property int minWidth: 80
-    property int cardWidth: 80
 
-    Flickable {
-        flickableDirection: Flickable.VerticalFlick
+    Rectangle {
         anchors.fill: parent
-        contentWidth: parent.width; contentHeight: grid.implicitHeight
+        focus: true
 
-        Flow {
-            anchors.fill: parent
-
-            id: grid
-
-            DeviceListTest{
-                id: devices
-            }
-
-            Component.onCompleted: {
-                u = Math.floor(Screen.logicalPixelDensity)
-
-                var containerWidth = root.width;
-                var columnsCount = Math.floor(containerWidth / (minWidth * u));
-                cardWidth = (containerWidth/ columnsCount);
-
-
-                var lightCard = Qt.createComponent("LightCard.qml");
-                var temperatureCard = Qt.createComponent("TemperatureCard.qml");
-
-                lightCard.width = cardWidth;
-                lightCard.height = cardWidth;
-                temperatureCard.width = cardWidth;
-                temperatureCard.height = cardWidth;
-
-                for (var i = 0; i < devices.count; i++) {
-                     var item = devices.get(i);
-
-                     var component;
-                     if (item.type == 1) {
-                         var object = temperatureCard.createObject(grid);
-                         object.value = item.value;
-                     } else {
-                         var object = lightCard.createObject(grid);
-                         object.value = item.value == 1;
-                     }
-
-//                     object.width = cardWidth;
-//                     object.height = cardWidth;
-                 }
-            }
-
-
-//            Repeater {
-//                model: DeviceListTest {}
-
-//                LightCard {
-//                    width: cardWidth
-//                    height: cardWidth
-//                    value: type == 1
-//                }
-//            }
-
-//            Repeater {
-//                model: DeviceListTest {}
-
-//                TemperatureCard {
-//                    width: cardWidth
-//                    height: cardWidth
-//                    value: type == 1
-//                }
-
+        Component.onCompleted: {
+            u = Math.floor(Screen.logicalPixelDensity)
         }
+
+        FlowManager {
+            id: flowManager
+        }
+
+        Dashboard {
+            id: dashboard
+            anchors.fill: parent
+            visible: flowManager.isDashboardVisible
+        }
+
+        RoomPanel {
+            id: roomPanel
+            anchors.fill: parent
+            visible: flowManager.isRoomsVisible
+        }
+
+        RoomsList {
+            id: devicesPanel
+            anchors.fill: parent
+            visible: flowManager.isDevicesVisible
+        }
+
+        Keys.onSpacePressed: {
+            flowManager.goBack();
+        }
+
+        Keys.onBackPressed: {
+            flowManager.goBack();
+        }
+
     }
-
-    Component.onCompleted: {
-//        u = Math.floor(Screen.logicalPixelDensity)
-
-//        var containerWidth = root.width;
-//        var columnsCount = Math.floor(containerWidth / (minWidth * u));
-//        cardWidth = (containerWidth/ columnsCount);
-    }
-
-
-    Screen.onHeightChanged: {
-        console.log("onHeightChanged " + Screen.logicalPixelDensity + " " + Screen.pixelDensity);
-
-        var containerWidth = Screen.width;
-        var columnsCount = Math.floor(containerWidth / (minWidth * u));
-        cardWidth = (containerWidth/ columnsCount);
-    }
-
 }

@@ -2,7 +2,8 @@ TEMPLATE = app
 
 QT += qml quick
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    navigationmanager.cpp
 
 RESOURCES += qml.qrc
 
@@ -13,3 +14,6 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 OTHER_FILES +=
+
+HEADERS += \
+    navigationmanager.h

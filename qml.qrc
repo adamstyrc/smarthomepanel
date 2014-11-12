@@ -1,11 +1,16 @@
 <RCC>
     <qresource prefix="/">
-        <file>main2.qml</file>
-        <file>main.qml</file>
+        <file>listViewTest.qml</file>
+        <file>RoomPanel.qml</file>
         <file>OnOffButton.qml</file>
         <file>DeviceListTest.qml</file>
         <file>TemperatureCard.qml</file>
         <file>LightCard.qml</file>
+        <file>Dashboard.qml</file>
+        <file>Devices.qml</file>
+        <file>RoomsList.qml</file>
+        <file>main.qml</file>
+        <file>FlowManager.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>
