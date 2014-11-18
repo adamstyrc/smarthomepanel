@@ -6,7 +6,7 @@ Rectangle {
     ListView {
         id: listView
         anchors.fill: parent
-        model: rooms
+        model: deviceTypes
         delegate: listDelegate
     }
 
@@ -34,24 +34,14 @@ Rectangle {
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: flowManager.showItem()
+                    onClicked: flowManager.showItem(index)
                 }
             }
         }
     }
 
-    ListModel {
-        id: rooms
-
-        ListElement {
-            name: "Room 1"
-        }
-
-        ListElement {
-            name: "Room 2"
-        }
-        ListElement {
-            name: "Room 2"
-        }
+    DeviceTypesModel {
+        id: deviceTypes
     }
+
 }

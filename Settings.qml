@@ -25,6 +25,7 @@ Rectangle {
             id: password
             echoMode: TextInput.Password
             Layout.fillWidth: true
+            
         }
 
         Label {
@@ -35,7 +36,5 @@ Rectangle {
             id: hostname
             Layout.fillWidth: true
         }
-
-
     }
 }

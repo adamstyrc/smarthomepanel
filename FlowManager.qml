@@ -8,12 +8,15 @@ QtObject {
 
     property bool isTopLevel: true
 
+    property int itemId: -1
+
     function goBack() {
 //        isDashboardVisible = !isDashboardVisible;
 //        isRoomsVisible = !isRoomsVisible;
 
         if (!isTopLevel) {
             isTopLevel = true;
+            itemId = -1;
         } else if (!isDashboardVisible) {
             isRoomsVisible = false;
             isDevicesVisible = false;
@@ -41,8 +44,9 @@ QtObject {
         isDashboardVisible = false;
     }
 
-    function showItem() {
+    function showItem(index) {
         isTopLevel = false;
+        itemId = index;
     }
 
 }

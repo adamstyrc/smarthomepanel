@@ -9,6 +9,10 @@ Window {
 
     property int u: 1
 
+    FlowManager {
+        id: flowManager
+    }
+
     Rectangle {
         anchors.fill: parent
         focus: true
@@ -17,29 +21,36 @@ Window {
             u = Math.floor(Screen.logicalPixelDensity)
         }
 
-        FlowManager {
-            id: flowManager
+        NavigationBar {
+            id: navigationBar
         }
 
-        Dashboard {
-            id: dashboard
-            anchors.fill: parent
-            visible: flowManager.isDashboardVisible
-        }
+        Rectangle {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: navigationBar.bottom
+            anchors.bottom: parent.bottom
 
-        RoomsView {
-            anchors.fill: parent
-            visible: flowManager.isRoomsVisible
-        }
+            Dashboard {
+                id: dashboard
+                anchors.fill: parent
+                visible: flowManager.isDashboardVisible
+            }
 
-        RoomsList {
-            anchors.fill: parent
-            visible: flowManager.isDevicesVisible
-        }
+            RoomsView {
+                anchors.fill: parent
+                visible: flowManager.isRoomsVisible
+            }
 
-        Settings {
-            anchors.fill: parent
-            visible: flowManager.isSettingsVisible
+            DevicesView {
+                anchors.fill: parent
+                visible: flowManager.isDevicesVisible
+            }
+
+            Settings {
+                anchors.fill: parent
+                visible: flowManager.isSettingsVisible
+            }
         }
 
         Keys.onSpacePressed: {
@@ -49,6 +60,5 @@ Window {
         Keys.onBackPressed: {
             flowManager.goBack();
         }
-
     }
 }

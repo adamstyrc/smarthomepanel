@@ -7,7 +7,6 @@ Rectangle {
 //    width: 600
 //    height: 600
     color: "#6d625c"
-    anchors.fill: parent
 
     property int minWidth: 80
     property int cardWidth: 80

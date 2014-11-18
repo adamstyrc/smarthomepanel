@@ -1,35 +1,13 @@
 import QtQuick 2.0
 
 Rectangle {
-    width: 600
-    height: 600
-
-    ListView {
-        id: listView
+    DeviceTypesList {
         anchors.fill: parent
-        model: DeviceListTest {}
-        delegate: listDelegate
+        visible: flowManager.isTopLevel
     }
 
-    Component {
-        id: listDelegate
-
-        Item {
-            width: listView.width
-            height: 64
-
-            Rectangle {
-                anchors.fill: parent
-                color: "lightGray"
-                border.color: "black"
-                border.width: 3
-
-                Text {
-                    anchors.centerIn: parent
-                    text: index
-                    font.pixelSize: 30
-                }
-            }
-        }
+    DevicesForTypeList {
+        anchors.fill: parent
+        visible: !flowManager.isTopLevel
     }
 }

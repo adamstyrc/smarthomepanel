@@ -1,13 +1,28 @@
 import QtQuick 2.0
 
 Rectangle {
-    color: "#5e5751"
-
     ListView {
         id: listView
         anchors.fill: parent
-        model: rooms
+        model: devices
         delegate: listDelegate
+//        header: header
+        spacing: u
+    }
+
+    Component {
+        id: header
+
+        Rectangle {
+            height: 20*u
+            width: listView.width
+            color: "lightgreen"
+
+            Text {
+                anchors.centerIn: parent
+                text: deviceTypes.get(flowManager.itemId).name
+            }
+        }
     }
 
     Component {
@@ -15,11 +30,11 @@ Rectangle {
 
         Item {
             width: listView.width
-            height: 100
+            height: 30*u
 
             Rectangle {
-                width: parent.width - 40
-                height: parent.height - 40
+                width: parent.width
+                height: parent.height
                 anchors.centerIn: parent
 //                anchors.fill: parent
                 color: "lightGray"
@@ -34,24 +49,17 @@ Rectangle {
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: flowManager.showItem()
+//                    onClicked: flowManager.showItem()
                 }
             }
         }
     }
 
-    ListModel {
-        id: rooms
+    DeviceListTest {
+        id: devices
+    }
 
-        ListElement {
-            name: "Room 1"
-        }
-
-        ListElement {
-            name: "Room 2"
-        }
-        ListElement {
-            name: "Room 2"
-        }
+    DeviceTypesModel {
+        id: deviceTypes
     }
 }
