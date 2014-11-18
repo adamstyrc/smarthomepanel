@@ -4,9 +4,9 @@ QtObject {
     property bool isDashboardVisible: true
     property bool isRoomsVisible: false
     property bool isDevicesVisible: false
+    property bool isSettingsVisible: false
+
     property bool isTopLevel: true
-//    property bool isDashboardVisible: true
-//    property bool isDashboardVisible: true
 
     function goBack() {
 //        isDashboardVisible = !isDashboardVisible;
@@ -17,6 +17,7 @@ QtObject {
         } else if (!isDashboardVisible) {
             isRoomsVisible = false;
             isDevicesVisible = false;
+            isSettingsVisible = false;
             isDashboardVisible = true;
             return false;
         } else {
@@ -32,6 +33,11 @@ QtObject {
 
     function showDevices() {
         isDevicesVisible = true;
+        isDashboardVisible = false;
+    }
+
+    function showSettings() {
+        isSettingsVisible = true;
         isDashboardVisible = false;
     }
 

@@ -61,7 +61,7 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-//                    flowManager.showDevices();
+                    flowManager.showSettings();
                 }
             }
 

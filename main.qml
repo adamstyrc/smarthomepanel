@@ -37,6 +37,11 @@ Window {
             visible: flowManager.isDevicesVisible
         }
 
+        Settings {
+            anchors.fill: parent
+            visible: flowManager.isSettingsVisible
+        }
+
         Keys.onSpacePressed: {
             flowManager.goBack();
         }
