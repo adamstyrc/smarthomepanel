@@ -1,8 +1,7 @@
 import QtQuick 2.0
 
 Rectangle {
-    width: 200
-    height:600
+    anchors.fill: parent
     color: "#323232"
 
     ListView {
@@ -32,6 +31,11 @@ Rectangle {
                     anchors.centerIn: parent
                     text: name;
                     font.pixelSize: 30
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: flowManager.showItem()
                 }
             }
         }

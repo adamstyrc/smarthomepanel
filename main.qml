@@ -27,14 +27,12 @@ Window {
             visible: flowManager.isDashboardVisible
         }
 
-        RoomPanel {
-            id: roomPanel
+        RoomsView {
             anchors.fill: parent
             visible: flowManager.isRoomsVisible
         }
 
         RoomsList {
-            id: devicesPanel
             anchors.fill: parent
             visible: flowManager.isDevicesVisible
         }

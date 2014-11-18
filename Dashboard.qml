@@ -28,6 +28,11 @@ Rectangle {
 //                    window.show();
                 }
             }
+
+            Text {
+                anchors.centerIn: parent
+                text: "Rooms"
+            }
         }
 
         Rectangle {
@@ -40,6 +45,29 @@ Rectangle {
                 onClicked: {
                     flowManager.showDevices();
                 }
+            }
+
+            Text {
+                anchors.centerIn: parent
+                text: "Devices"
+            }
+        }
+
+        Rectangle {
+            width: root.width
+            height: 200
+            color: "green"
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+//                    flowManager.showDevices();
+                }
+            }
+
+            Text {
+                anchors.centerIn: parent
+                text: "Settings"
             }
         }
     }

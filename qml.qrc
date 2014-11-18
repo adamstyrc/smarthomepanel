@@ -7,10 +7,10 @@
         <file>TemperatureCard.qml</file>
         <file>LightCard.qml</file>
         <file>Dashboard.qml</file>
-        <file>Devices.qml</file>
         <file>RoomsList.qml</file>
         <file>main.qml</file>
         <file>FlowManager.qml</file>
+        <file>RoomsView.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>
