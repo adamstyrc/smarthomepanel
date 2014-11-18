@@ -1,8 +1,11 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
+import "Color.js" as Color
 
 Rectangle {
+    color: Color.BACKGROUND
+
     Grid {
         columns: 2
         spacing: 8

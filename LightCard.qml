@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import "Color.js" as Color
 
 Item {
     id: cardContent
@@ -15,7 +16,7 @@ Item {
         width: parent.width - 5*u
         height: parent.height - 5*u
         anchors.centerIn: parent
-        color: "#5e5751"
+        color: Color.COMPONENT_BACKGROUND
 
         Image {
             id: icon

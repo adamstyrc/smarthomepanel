@@ -1,12 +1,11 @@
 import QtQuick 2.0
 import QtQuick.Window 2.1
 import QtQuick.Layouts 1.1
+import "Color.js" as Color
+
 
 Rectangle {
     id: root
-//    width: 600
-//    height: 600
-    color: "#6d625c"
 
     property int minWidth: 80
     property int cardWidth: 80

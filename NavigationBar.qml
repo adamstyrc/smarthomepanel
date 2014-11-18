@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import "img/"
+import "Color.js" as Color
 
 Rectangle {
     anchors.top: parent.top
@@ -7,7 +8,7 @@ Rectangle {
     anchors.right: parent.right
     height: 20*u
     z: 100
-    color: "#303030"
+    color: Color.MENU_BACKGROUND
 
     Image {
         height: parent.height
@@ -23,6 +24,7 @@ Rectangle {
 
     Text {
         anchors.centerIn: parent
-        text: "Title"
+        color: Color.MENU_CONTRAST
+        text: flowManager.title
     }
 }
