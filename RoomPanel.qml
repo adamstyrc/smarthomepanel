@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.1
 import "Color.js" as Color
 
 
+
 Rectangle {
     id: root
 

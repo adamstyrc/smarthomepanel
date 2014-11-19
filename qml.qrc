@@ -17,7 +17,10 @@
         <file>DevicesForTypeList.qml</file>
         <file>DeviceTypesModel.qml</file>
         <file>NavigationBar.qml</file>
+        <file>ListViewItem.qml</file>
+        <file>DeviceListItem.qml</file>
         <file>Color.js</file>
+        <file>Dimension.js</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>
@@ -25,4 +28,5 @@
         <file alias="arrow_left">img/arrow_left.png</file>
         <file alias="previous_item">img/ic_action_previous_item.png</file>
     </qresource>
+    <qresource prefix="/values"/>
 </RCC>

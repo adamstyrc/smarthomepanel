@@ -14,7 +14,7 @@ Rectangle {
         anchors.fill: parent
 
         Rectangle {
-            width: root.width
+            Layout.fillWidth: true
             height: 200
             color: "red"
 
@@ -36,7 +36,7 @@ Rectangle {
         }
 
         Rectangle {
-            width: root.width
+            Layout.fillWidth: true
             height: 200
             color: "blue"
 
@@ -54,7 +54,7 @@ Rectangle {
         }
 
         Rectangle {
-            width: root.width
+            Layout.fillWidth: true
             height: 200
             color: "green"
 

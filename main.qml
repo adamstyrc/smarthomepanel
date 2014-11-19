@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import QtQuick.Window 2.1
-import "Color.js" as Color
 
 
 Window {
@@ -32,7 +31,6 @@ Window {
             anchors.right: parent.right
             anchors.top: navigationBar.bottom
             anchors.bottom: parent.bottom
-            color: Color.BACKGROUND
 
             Dashboard {
                 id: dashboard

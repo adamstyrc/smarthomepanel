@@ -7,7 +7,7 @@ Rectangle {
         model: devices
         delegate: listDelegate
 //        header: header
-        spacing: u
+        spacing: 4*u
     }
 
     Component {
@@ -28,31 +28,7 @@ Rectangle {
     Component {
         id: listDelegate
 
-        Item {
-            width: listView.width
-            height: 30*u
-
-            Rectangle {
-                width: parent.width
-                height: parent.height
-                anchors.centerIn: parent
-//                anchors.fill: parent
-                color: "lightGray"
-                border.color: "black"
-                border.width: 1
-
-                Text {
-                    anchors.centerIn: parent
-                    text: name;
-                    font.pixelSize: 30
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-//                    onClicked: flowManager.showItem()
-                }
-            }
-        }
+        DeviceListItem {}
     }
 
     DeviceListTest {
