@@ -4,11 +4,12 @@ import QtQuick.Layouts 1.1
 import "Color.js" as Color
 import "WebService.js" as WebService
 
+
 Rectangle {
     color: Color.BACKGROUND
 
     Grid {
-        columns: 2
+        columns: 1
         spacing: 8
         anchors.centerIn: parent
 
@@ -19,6 +20,10 @@ Rectangle {
         TextField {
             id: login
             Layout.fillWidth: true
+            text: settings.login
+            onTextChanged: {
+                settings.login = text
+            }
         }
 
         Label {
@@ -29,6 +34,10 @@ Rectangle {
             id: password
             echoMode: TextInput.Password
             Layout.fillWidth: true
+            text: settings.password
+            onTextChanged: {
+                settings.password = text
+            }
             
         }
 
@@ -39,9 +48,9 @@ Rectangle {
         TextField {
             id: hostname
             Layout.fillWidth: true
-            text: WebService.BASE
+            text: settings.hostname
             onTextChanged: {
-                WebService.BASE = text
+                settings.hostname = text
             }
         }
     }

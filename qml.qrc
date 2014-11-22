@@ -11,7 +11,6 @@
         <file>main.qml</file>
         <file>FlowManager.qml</file>
         <file>RoomsView.qml</file>
-        <file>Settings.qml</file>
         <file>DevicesView.qml</file>
         <file>DeviceTypesList.qml</file>
         <file>DevicesForTypeList.qml</file>
@@ -22,6 +21,7 @@
         <file>Color.js</file>
         <file>Dimension.js</file>
         <file>WebService.js</file>
+        <file>SettingsView.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>

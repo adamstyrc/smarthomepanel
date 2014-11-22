@@ -1,6 +1,6 @@
-var BASE = "http://192.168.0.19:8080";
+//var BASE = "";
 
-function request(verb, endpoint, obj, cb) {
+function request(BASE, verb, endpoint, obj, cb) {
     print('request: ' + verb + ' ' + BASE + (endpoint ? ('/' + endpoint) : ''))
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -19,6 +19,6 @@ function request(verb, endpoint, obj, cb) {
     xhr.send(data)
 }
 
-function getDevices(cb) {
-    request('GET', 'devices', null, cb)
+function getDevices(BASE, callback) {
+    request(BASE, 'GET', 'devices', null, callback)
 }

@@ -44,7 +44,7 @@ Rectangle {
         console.log("Item.onVisibleChanged " + visible);
 
         if (visible) {
-            WebService.getDevices(function(resp) {
+            WebService.getDevices(settings.hostname, function(resp) {
                 devices.clear();
                 for(var i = 0; i < resp.length; i++) {
                     devices.append(resp[i]);
@@ -52,9 +52,5 @@ Rectangle {
                 }
             })
         }
-    }
-
-    Component.onCompleted: {
-
     }
 }

@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Window 2.1
-
+import Qt.labs.settings 1.0
 
 Window {
     id: root
@@ -12,6 +12,17 @@ Window {
 
     FlowManager {
         id: flowManager
+    }
+
+    Settings {
+        id: settings
+        property string login: ""
+        property string password: ""
+        property string hostname: "http://192.168.0.19:8080"
+
+        Component.onCompleted: {
+            console.log("onCompleted hostname: " + settings.hostname);
+        }
     }
 
     Rectangle {
@@ -48,7 +59,7 @@ Window {
                 visible: flowManager.isDevicesVisible
             }
 
-            Settings {
+            SettingsView {
                 anchors.fill: parent
                 visible: flowManager.isSettingsVisible
             }
@@ -61,5 +72,9 @@ Window {
         Keys.onBackPressed: {
             flowManager.goBack();
         }
+    }
+
+    Component.onDestruction: {
+        console.log("hostname: " + settings.hostname);
     }
 }
