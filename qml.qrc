@@ -21,6 +21,7 @@
         <file>DeviceListItem.qml</file>
         <file>Color.js</file>
         <file>Dimension.js</file>
+        <file>WebService.js</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>

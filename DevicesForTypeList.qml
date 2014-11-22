@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import "WebService.js" as WebService
 
 Rectangle {
     ListView {
@@ -37,5 +38,23 @@ Rectangle {
 
     DeviceTypesModel {
         id: deviceTypes
+    }
+
+    onVisibleChanged: {
+        console.log("Item.onVisibleChanged " + visible);
+
+        if (visible) {
+            WebService.getDevices(function(resp) {
+                devices.clear();
+                for(var i = 0; i < resp.length; i++) {
+                    devices.append(resp[i]);
+                    console.log(resp[i].name);
+                }
+            })
+        }
+    }
+
+    Component.onCompleted: {
+
     }
 }
