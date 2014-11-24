@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import "WebService.js" as WebService
+import "Dimension.js" as Dimension
 
 Rectangle {
     ListView {
@@ -8,7 +9,7 @@ Rectangle {
         model: devices
         delegate: listDelegate
 //        header: header
-        spacing: 4*u
+        spacing: Dimension.SPACING*u
     }
 
     Component {

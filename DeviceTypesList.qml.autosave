@@ -25,6 +25,4 @@ Rectangle {
 
     DeviceTypesModel {
         id: deviceTypes
-    }
-
-}
+  gt

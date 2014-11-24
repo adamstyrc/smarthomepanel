@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import "Dimension.js" as Dimension
 
 Rectangle {
 
@@ -7,7 +8,7 @@ Rectangle {
         anchors.fill: parent
         model: rooms
         delegate: listDelegate
-        spacing: u
+        spacing: Dimension.SPACING*u
     }
 
     Component {

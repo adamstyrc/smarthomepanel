@@ -1,3 +1,1 @@
-function func() {
-
-}
+var SPACING = 4;
