@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import "Dimension.js" as Dimension
+import "WebService.js" as WebService
 
 Rectangle {
 
@@ -34,6 +35,20 @@ Rectangle {
         }
         ListElement {
             name: "Room 2"
+        }
+    }
+
+    onVisibleChanged: {
+        console.log("Item.onVisibleChanged " + visible);
+
+        if (visible) {
+            WebService.getRooms(settings.hostname, function(resp) {
+                rooms.clear();
+                for(var i = 0; i < resp.length; i++) {
+                    rooms.append(resp[i]);
+                    console.log(resp[i].name);
+                }
+            })
         }
     }
 }

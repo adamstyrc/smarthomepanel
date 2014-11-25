@@ -7,7 +7,8 @@ function request(BASE, verb, endpoint, obj, cb) {
         print('xhr: on ready state change: ' + xhr.readyState)
         if(xhr.readyState === XMLHttpRequest.DONE) {
             if(cb) {
-                var res = JSON.parse(xhr.responseText.toString())
+                console.log(xhr.responseText);
+                var res = JSON.parse(xhr.responseText.toString());
                 cb(res);
             }
         }
@@ -19,6 +20,18 @@ function request(BASE, verb, endpoint, obj, cb) {
     xhr.send(data)
 }
 
-function getDevices(BASE, callback) {
-    request(BASE, 'GET', 'devices', null, callback)
+function getDevicesForType(BASE, typeId, callback) {
+    var endpoint = 'devicesForType/';
+    console.log("endpoint ", endpoint + typeId);
+    request(BASE, 'GET', endpoint + typeId, null, callback)
+}
+
+function getDevicesForRoom(BASE, roomId, callback) {
+    var endpoint = 'devicesForRoom/';
+    console.log("endpoint ", endpoint + roomId);
+    request(BASE, 'GET', endpoint + roomId, null, callback)
+}
+
+function getRooms(BASE, callback) {
+    request(BASE, 'GET', 'rooms', null, callback)
 }

@@ -53,10 +53,9 @@ Item {
     }
 
     function showItem(index) {
-        isTopLevel = false;
         itemId = index;
-
         setTitle();
+        isTopLevel = false;
     }
 
     function setTitle() {

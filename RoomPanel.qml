@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Window 2.1
 import QtQuick.Layouts 1.1
 import "Color.js" as Color
+import "WebService.js" as WebService
 
 
 
@@ -21,12 +22,17 @@ Rectangle {
 
             id: grid
 
-            DeviceListTest{
+            ListModel{
                 id: devices
             }
 
-            Component.onCompleted: {
+            function refresh() {
 //                u = Math.floor(Screen.logicalPixelDensity)
+
+                for(var i = grid.children.length; i > 0 ; i--) {
+                  console.log("destroying: " + i)
+                  grid.children[i-1].destroy()
+                }
 
                 var containerWidth = root.width;
                 var columnsCount = Math.floor(containerWidth / (minWidth * u));
@@ -45,7 +51,7 @@ Rectangle {
                      var item = devices.get(i);
 
                      var component;
-                     if (item.type == 1) {
+                     if (item.typeId == 1) {
                          var object = temperatureCard.createObject(grid);
                          object.value = item.value;
                      } else {
@@ -57,27 +63,6 @@ Rectangle {
 //                     object.height = cardWidth;
                  }
             }
-
-
-//            Repeater {
-//                model: DeviceListTest {}
-
-//                LightCard {
-//                    width: cardWidth
-//                    height: cardWidth
-//                    value: type == 1
-//                }
-//            }
-
-//            Repeater {
-//                model: DeviceListTest {}
-
-//                TemperatureCard {
-//                    width: cardWidth
-//                    height: cardWidth
-//                    value: type == 1
-//                }
-
         }
     }
 
@@ -98,4 +83,20 @@ Rectangle {
         cardWidth = (containerWidth/ columnsCount);
     }
 
+    onVisibleChanged: {
+        console.log("Item.onVisibleChanged " + visible);
+
+        if (visible) {
+            WebService.getDevicesForRoom(settings.hostname, flowManager.itemId, function(resp) {
+                devices.clear();
+                for(var i = 0; i < resp.length; i++) {
+                    console.log("elem" + i)
+                    devices.append(resp[i]);
+                    console.log(resp[i].name);
+                }
+
+                grid.refresh();
+            })
+        }
+    }
 }

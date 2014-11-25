@@ -45,7 +45,7 @@ Rectangle {
         console.log("Item.onVisibleChanged " + visible);
 
         if (visible) {
-            WebService.getDevices(settings.hostname, function(resp) {
+            WebService.getDevicesForType(settings.hostname, flowManager.itemId, function(resp) {
                 devices.clear();
                 for(var i = 0; i < resp.length; i++) {
                     devices.append(resp[i]);
