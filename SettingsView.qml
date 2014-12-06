@@ -42,15 +42,32 @@ Rectangle {
         }
 
         Label {
-            text: "Hostname"
+            text: "IP"
         }
 
         TextField {
-            id: hostname
+            id: ip
             Layout.fillWidth: true
-            text: settings.hostname
+            text: settings.ip
             onTextChanged: {
-                settings.hostname = text
+                if (visible) {
+                    settings.ip = String(text);
+                }
+            }
+        }
+
+        Label {
+            text: "Port"
+        }
+
+        TextField {
+            id: port
+            Layout.fillWidth: true
+            text: settings.port
+            onTextChanged: {
+                if (visible) {
+                    settings.port = String(text);
+                }
             }
         }
     }

@@ -86,11 +86,11 @@ Rectangle {
     onVisibleChanged: {
         console.log("Item.onVisibleChanged " + visible);
 
+        console.log(settings.hostname);
         if (visible) {
             WebService.getDevicesForRoom(settings.hostname, flowManager.itemId, function(resp) {
                 devices.clear();
                 for(var i = 0; i < resp.length; i++) {
-                    console.log("elem" + i)
                     devices.append(resp[i]);
                     console.log(resp[i].name);
                 }

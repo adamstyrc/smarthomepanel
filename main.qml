@@ -18,10 +18,13 @@ Window {
         id: settings
         property string login: ""
         property string password: ""
-        property string hostname: "http://192.168.0.19:8080"
 
-        Component.onCompleted: {
-            console.log("onCompleted hostname: " + settings.hostname);
+        property string ip: "192.168.0.13"
+        property string port: "5000"
+        property string hostname: "http://" + ip + ":" + port
+
+        onHostnameChanged: {
+            console.log("kurwa zmiana " + hostname)
         }
     }
 
