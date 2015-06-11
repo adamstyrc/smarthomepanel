@@ -22,12 +22,14 @@
         <file>Dimension.js</file>
         <file>WebService.js</file>
         <file>SettingsView.qml</file>
+        <file>Card.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>
         <file alias="light_icon">img/light_icon.png</file>
         <file alias="arrow_left">img/arrow_left.png</file>
         <file alias="previous_item">img/ic_action_previous_item.png</file>
+        <file>img/add.png</file>
     </qresource>
     <qresource prefix="/values"/>
 </RCC>

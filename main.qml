@@ -24,7 +24,7 @@ Window {
         property string hostname: "http://" + ip + ":" + port
 
         onHostnameChanged: {
-            console.log("kurwa zmiana " + hostname)
+            console.log("Hostname changed: " + hostname)
         }
     }
 

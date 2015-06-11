@@ -36,31 +36,27 @@ Rectangle {
 
                 var containerWidth = root.width;
                 var columnsCount = Math.floor(containerWidth / (minWidth * u));
-                cardWidth = (containerWidth/ columnsCount);
+                cardWidth = (containerWidth / columnsCount);
 
 
                 var lightCard = Qt.createComponent("LightCard.qml");
                 var temperatureCard = Qt.createComponent("TemperatureCard.qml");
 
-                lightCard.width = cardWidth;
-                lightCard.height = cardWidth;
-                temperatureCard.width = cardWidth;
-                temperatureCard.height = cardWidth;
-
                 for (var i = 0; i < devices.count; i++) {
-                     var item = devices.get(i);
+                    var item = devices.get(i);
 
-                     var component;
+                    var object;
+
                      if (item.typeId == 1) {
-                         var object = temperatureCard.createObject(grid);
-                         object.value = item.value;
-                     } else {
-                         var object = lightCard.createObject(grid);
+                         object = lightCard.createObject(grid);
+                         object.name = item.name;
                          object.value = item.value == 1;
+                     } else {
+                         object = temperatureCard.createObject(grid);
+                         object.name = item.name;
+                         console.log("ACHTUNG", item.name + " " + item.state);
+                         object.value = item.state;
                      }
-
-//                     object.width = cardWidth;
-//                     object.height = cardWidth;
                  }
             }
         }

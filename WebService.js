@@ -21,13 +21,13 @@ function request(BASE, verb, endpoint, obj, cb) {
 }
 
 function getDevicesForType(BASE, typeId, callback) {
-    var endpoint = 'devicesForType/';
+    var endpoint = 'devices/type/';
     console.log("endpoint ", endpoint + typeId);
     request(BASE, 'GET', endpoint + typeId, null, callback)
 }
 
 function getDevicesForRoom(BASE, roomId, callback) {
-    var endpoint = 'devicesForRoom/';
+    var endpoint = 'devices/room/';
     console.log("endpoint ", endpoint + roomId);
     request(BASE, 'GET', endpoint + roomId, null, callback)
 }

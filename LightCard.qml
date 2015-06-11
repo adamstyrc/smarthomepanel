@@ -1,44 +1,49 @@
 import QtQuick 2.0
 import "Color.js" as Color
+import "Dimension.js" as Dimension
+
 
 
 Item {
     id: cardContent
 
-    property int minWidth: 80
-    property int minHeight: 80
-
     width: cardWidth
     height: cardWidth
 
+    property string name : "Light"
     property bool value : true
 
     Rectangle {
-        width: parent.width - 5*u
-        height: parent.height - 5*u
+        width: parent.width - Dimension.SPACING*u
+        height: parent.height - Dimension.SPACING*u
         anchors.centerIn: parent
         color: Color.COMPONENT_BACKGROUND
 
-        Image {
-            id: icon
-            source: "img/light_icon"
-            width: (parent.width - 5*u) / 2
-            height: (parent.width - 5*u) / 2
-            anchors.left: parent.left
-            anchors.verticalCenter: parent.verticalCenter
+        Rectangle {
+            width: parent.width - Dimension.SPACING*u
+            height: parent.height - Dimension.SPACING*u
+            anchors.centerIn: parent
+            color: parent.color
+
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: name
+            }
+
+            Image {
+                id: icon
+                source: "img/light_icon"
+                width: (parent.width - 5*u) / 2
+                height: (parent.width - 5*u) / 2
+                anchors.centerIn: parent
+            }
+
+            OnOffButton {
+                anchors.bottom: parent.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width / 2
+                checked: value
+            }
         }
-
-        OnOffButton {
-            anchors.right: parent.right
-            anchors.left: icon.right
-            anchors.verticalCenter: parent.verticalCenter
-
-            checked: value
-        }
-    }
-
-    Component.onCompleted: {
-//        var columnsCount = Math.floor(root.width / (minWidth * u));
-//        width = (root.width / columnsCount) * u;
     }
 }

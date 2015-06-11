@@ -2,10 +2,13 @@
 #include <QQmlApplicationEngine>
 #include <QtQml>
 #include "navigationmanager.h"
+#include "QTextCodec.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+
+     QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
 
     QQmlApplicationEngine engine;
     QQmlContext* context = engine.rootContext();
