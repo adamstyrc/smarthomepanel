@@ -7,12 +7,15 @@ Rectangle {
     anchors.right: parent.right
     height: 24*u
     z: 100
+
     color: Color.MENU_BACKGROUND
+
+    property string title: "Smart Home Panel"
 
     Image {
         height: parent.height
         width: parent.height
-        visible: !flowManager.isDashboardVisible
+        visible: stackView.depth > 1
         source: "img/previous_item"
 
         MouseArea {
@@ -24,7 +27,7 @@ Rectangle {
     Text {
         anchors.centerIn: parent
         color: Color.MENU_CONTRAST
-        text: flowManager.title
+        text: title
     }
 
     Image {
@@ -33,7 +36,7 @@ Rectangle {
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         anchors.margins: 4*u
-        visible: !flowManager.isDashboardVisible
+        visible: stackView.depth > 1
         source: "img/img/add.png"
     }
 }

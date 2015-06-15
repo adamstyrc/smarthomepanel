@@ -2,72 +2,74 @@ import QtQuick 2.0
 import QtQuick.Window 2.1
 import QtQuick.Layouts 1.1
 
-
 Rectangle {
-    id: root
-    width: 600
-    height: 600
-    visible: true
+    anchors.fill: parent
 
+    NavigationBar {
+        id: navigationBar
+    }
 
-    ColumnLayout {
-        anchors.fill: parent
+    Rectangle {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: navigationBar.bottom
+        anchors.bottom: parent.bottom
 
-        Rectangle {
-            Layout.fillWidth: true
-            height: 200
-            color: "red"
+        ColumnLayout {
+            anchors.fill: parent
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    flowManager.showRooms();
-//                    root.close();
-//                    var component = Qt.createComponent("main.qml");
-//                    var window = component.createObject(this);
-//                    window.show();
+            Rectangle {
+                Layout.fillWidth: true
+                height: 200
+                color: "red"
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        flowManager.showRooms();
+                    }
+                }
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "Rooms"
                 }
             }
 
-            Text {
-                anchors.centerIn: parent
-                text: "Rooms"
-            }
-        }
+            Rectangle {
+                Layout.fillWidth: true
+                height: 200
+                color: "blue"
 
-        Rectangle {
-            Layout.fillWidth: true
-            height: 200
-            color: "blue"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        flowManager.showDevices();
+                    }
+                }
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    flowManager.showDevices();
+                Text {
+                    anchors.centerIn: parent
+                    text: "Devices"
                 }
             }
 
-            Text {
-                anchors.centerIn: parent
-                text: "Devices"
-            }
-        }
+            Rectangle {
+                Layout.fillWidth: true
+                height: 200
+                color: "green"
 
-        Rectangle {
-            Layout.fillWidth: true
-            height: 200
-            color: "green"
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    flowManager.showSettings();
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        flowManager.showSettings();
+                    }
                 }
-            }
 
-            Text {
-                anchors.centerIn: parent
-                text: "Settings"
+                Text {
+                    anchors.centerIn: parent
+                    text: "Settings"
+                }
             }
         }
     }

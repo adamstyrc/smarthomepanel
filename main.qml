@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Window 2.1
 import Qt.labs.settings 1.0
+import QtQuick.Controls 1.2
 
 Window {
     id: root
@@ -28,44 +29,14 @@ Window {
         }
     }
 
-    Rectangle {
+    StackView {
+        id: stackView
         anchors.fill: parent
+        initialItem: dashboardComponent
         focus: true
 
         Component.onCompleted: {
             u = Math.floor(Screen.logicalPixelDensity)
-        }
-
-        NavigationBar {
-            id: navigationBar
-        }
-
-        Rectangle {
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: navigationBar.bottom
-            anchors.bottom: parent.bottom
-
-            Dashboard {
-                id: dashboard
-                anchors.fill: parent
-                visible: flowManager.isDashboardVisible
-            }
-
-            RoomsView {
-                anchors.fill: parent
-                visible: flowManager.isRoomsVisible
-            }
-
-            DevicesView {
-                anchors.fill: parent
-                visible: flowManager.isDevicesVisible
-            }
-
-            SettingsView {
-                anchors.fill: parent
-                visible: flowManager.isSettingsVisible
-            }
         }
 
         Keys.onSpacePressed: {
@@ -75,6 +46,30 @@ Window {
         Keys.onBackPressed: {
             flowManager.goBack();
         }
+    }
+
+    Component {
+        id: dashboardComponent
+
+        Dashboard {}
+    }
+
+    Component {
+        id: roomsViewComponent
+
+        RoomsView {}
+    }
+
+    Component {
+        id: devicesViewComponent
+
+        DevicesView {}
+    }
+
+    Component {
+        id: settingsViewComponent
+
+        SettingsView {}
     }
 
     Component.onDestruction: {

@@ -1,11 +1,6 @@
 import QtQuick 2.0
 
 Item {
-    property bool isDashboardVisible: true
-    property bool isRoomsVisible: false
-    property bool isDevicesVisible: false
-    property bool isSettingsVisible: false
-
     property bool isTopLevel: true
 
     property int itemId: -1
@@ -13,72 +8,33 @@ Item {
     property string title: "Smart Home Panel"
 
     function goBack() {
-//        isDashboardVisible = !isDashboardVisible;
-//        isRoomsVisible = !isRoomsVisible;
-
-        if (!isTopLevel) {
-            isTopLevel = true;
-            itemId = -1;
-        } else if (!isDashboardVisible) {
-            isRoomsVisible = false;
-            isDevicesVisible = false;
-            isSettingsVisible = false;
-            isDashboardVisible = true;
+        if (isTopLevel) {
+            if (stackView.depth > 1) {
+                stackView.pop();
+            } else {
+                Qt.quit();
+            }
         } else {
-            Qt.quit();
+            isTopLevel = true;
         }
-
-        setTitle();
     }
 
     function showRooms() {
-        isRoomsVisible = true;
-        isDashboardVisible = false;
-
-        setTitle();
+        stackView.push(roomsViewComponent);
     }
 
     function showDevices() {
-        isDevicesVisible = true;
-        isDashboardVisible = false;
-
-        setTitle();
+        stackView.push(devicesViewComponent);
     }
 
     function showSettings() {
-        isSettingsVisible = true;
-        isDashboardVisible = false;
-
-        setTitle();
+        stackView.push(settingsViewComponent);
     }
 
     function showItem(index) {
         itemId = index;
-        setTitle();
+//        setTitle();
         isTopLevel = false;
-    }
-
-    function setTitle() {
-        console.log("setTitle");
-        if (isDashboardVisible) {
-            title = "Smart Home Panel"
-        } else if (isRoomsVisible) {
-            if (isTopLevel) {
-                title = "Rooms";
-            } else {
-                title = itemId;
-            }
-        } else if (isDevicesVisible) {
-            if (isTopLevel) {
-                title = "Devices";
-            } else {
-                title = deviceTypes.get(itemId).name;
-            }
-        } else if (isSettingsVisible) {
-            if (isTopLevel) {
-                title = "Settings";
-            }
-        }
     }
 
     DeviceTypesModel {
