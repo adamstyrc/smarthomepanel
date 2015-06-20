@@ -72,6 +72,11 @@ Window {
         SettingsView {}
     }
 
+    Component {
+        id: addRoomViewComponent
+        AddRoomView {}
+    }
+
     Component.onDestruction: {
         console.log("hostname: " + settings.hostname);
     }

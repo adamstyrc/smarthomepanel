@@ -23,6 +23,7 @@
         <file>WebService.js</file>
         <file>SettingsView.qml</file>
         <file>Card.qml</file>
+        <file>AddRoomView.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>

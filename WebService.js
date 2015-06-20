@@ -20,6 +20,7 @@ function request(BASE, verb, endpoint, obj, cb) {
     xhr.send(data)
 }
 
+
 function getDevicesForType(BASE, typeId, callback) {
     var endpoint = 'devices/type/';
     console.log("endpoint ", endpoint + typeId);
@@ -34,4 +35,8 @@ function getDevicesForRoom(BASE, roomId, callback) {
 
 function getRooms(BASE, callback) {
     request(BASE, 'GET', 'rooms', null, callback)
+}
+
+function postRoom(BASE, room, callback) {
+    request(BASE, 'POST', 'rooms', room, callback)
 }

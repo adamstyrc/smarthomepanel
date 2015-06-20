@@ -31,6 +31,10 @@ Item {
         stackView.push(settingsViewComponent);
     }
 
+    function showAddRoom() {
+        stackView.push(addRoomViewComponent);
+    }
+
     function showItem(index) {
         itemId = index;
 //        setTitle();

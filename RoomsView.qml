@@ -8,6 +8,21 @@ Rectangle {
     NavigationBar {
         id: navigationBar
         title: "Rooms"
+
+        Image {
+            height: parent.height - 4*u
+            width: parent.height - 4*u
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.margins: 4*u
+            visible: stackView.depth > 1
+            source: "img/img/add.png"
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: flowManager.showAddRoom()
+            }
+        }
     }
 
     Rectangle {

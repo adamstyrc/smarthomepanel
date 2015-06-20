@@ -15,11 +15,10 @@ Rectangle {
     Component {
         id: listDelegate
 
+
+
         ListViewItem {
-            MouseArea {
-                anchors.fill: parent
-                onClicked: flowManager.showItem(index)
-            }
+            id: itemOfList
         }
     }
 
