@@ -24,6 +24,7 @@
         <file>SettingsView.qml</file>
         <file>Card.qml</file>
         <file>AddRoomView.qml</file>
+        <file>AddDeviceView.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>

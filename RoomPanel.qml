@@ -22,7 +22,7 @@ Rectangle {
 
             id: grid
 
-            ListModel{
+            ListModel {
                 id: devices
             }
 
@@ -49,8 +49,9 @@ Rectangle {
 
                      if (item.typeId == 1) {
                          object = lightCard.createObject(grid);
+                         object._id = item._id;
                          object.name = item.name;
-                         object.value = item.value == 1;
+                         object.value = item.state === 1;
                      } else {
                          object = temperatureCard.createObject(grid);
                          object.name = item.name;

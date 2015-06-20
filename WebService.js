@@ -40,3 +40,7 @@ function getRooms(BASE, callback) {
 function postRoom(BASE, room, callback) {
     request(BASE, 'POST', 'rooms', room, callback)
 }
+
+function putDeviceState(BASE, device, callback) {
+    request(BASE, 'PUT', 'devices/state', device, callback)
+}
