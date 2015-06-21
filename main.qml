@@ -20,8 +20,8 @@ Window {
         property string login: ""
         property string password: ""
 
-        property string ip: "192.168.0.13"
-        property string port: "5000"
+        property string ip: "192.168.0.16"
+        property string port: "3000"
         property string hostname: "http://" + ip + ":" + port
 
         onHostnameChanged: {
@@ -75,6 +75,11 @@ Window {
     Component {
         id: addRoomViewComponent
         AddRoomView {}
+    }
+
+    Component {
+        id: addDeviceViewComponent
+        AddDeviceView {}
     }
 
     Component.onDestruction: {

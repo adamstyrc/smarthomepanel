@@ -50,6 +50,7 @@ Item {
             }
 
             MouseArea {
+                id: mouseArea
                 anchors.fill: parent
                 onClicked: {
                     progress.visible = true
@@ -64,6 +65,7 @@ Item {
                         progress.visible = false;
                     });
                 }
+
             }
 
             OnOffButton {

@@ -32,7 +32,8 @@ Item {
     }
 
     function showAddRoom() {
-        stackView.push(addRoomViewComponent);
+//        stackView.push(addRoomViewComponent);
+        stackView.push(addDeviceViewComponent);
     }
 
     function showItem(index) {
