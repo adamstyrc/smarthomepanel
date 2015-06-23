@@ -30,16 +30,25 @@ Rectangle {
     }
 
     onVisibleChanged: {
-        console.log("Item.onVisibleChanged " + visible);
+        console.log("RoomsList.onVisibleChanged " + visible);
 
         if (visible) {
-            WebService.getRooms(settings.hostname, function(resp) {
-                rooms.clear();
-                for(var i = 0; i < resp.length; i++) {
-                    rooms.append(resp[i]);
-                    console.log(resp[i].name);
-                }
-            })
+            refreshData();
         }
+    }
+
+    Component.onCompleted: {
+        console.log("RoomsList.onCompleted ");
+        refreshData();
+    }
+
+    function refreshData() {
+        WebService.getRooms(settings.hostname, function(resp) {
+            rooms.clear();
+            for(var i = 0; i < resp.length; i++) {
+                rooms.append(resp[i]);
+                console.log(resp[i].name);
+            }
+        })
     }
 }
