@@ -15,8 +15,6 @@ Rectangle {
     Component {
         id: listDelegate
 
-
-
         ListViewItem {
             id: itemOfList
         }
@@ -27,13 +25,7 @@ Rectangle {
 
         ListElement {
             name: "Room 1"
-        }
-
-        ListElement {
-            name: "Room 2"
-        }
-        ListElement {
-            name: "Room 2"
+            _id: "a"
         }
     }
 

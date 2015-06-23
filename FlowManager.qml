@@ -1,21 +1,22 @@
 import QtQuick 2.0
+import "Controller.js" as Controller
 
 Item {
-    property bool isTopLevel: true
+    property string itemId: ""
+    property bool isTopLevel: true;
 
-    property int itemId: -1
-
-    property string title: "Smart Home Panel"
+    property int currentDepth : stackView.depth - 1;
 
     function goBack() {
-        if (isTopLevel) {
-            if (stackView.depth > 1) {
+        if (stackView.depth > 1) {
+            if (isTopLevel) {
                 stackView.pop();
             } else {
-                Qt.quit();
+                Controller.isTopLevels[currentDepth] = true;
+                updateTopLevel();
             }
         } else {
-            isTopLevel = true;
+            Qt.quit();
         }
     }
 
@@ -32,18 +33,22 @@ Item {
     }
 
     function showAddRoom() {
-//        stackView.push(addRoomViewComponent);
         stackView.push(addDeviceViewComponent);
+    }
+    function updateTopLevel() {
+        isTopLevel = Controller.isTopLevels[currentDepth];
+        console.log("topLevels: " + Controller.isTopLevels + " | depth: " + currentDepth);
     }
 
     function showItem(index) {
         itemId = index;
-//        setTitle();
-        isTopLevel = false;
+        Controller.isTopLevels[currentDepth] = false;
+        updateTopLevel();
     }
 
     DeviceTypesModel {
         id: deviceTypes
     }
 
+    onCurrentDepthChanged: updateTopLevel();
 }

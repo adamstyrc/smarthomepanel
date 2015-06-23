@@ -18,7 +18,7 @@ Rectangle {
         ListViewItem {
             MouseArea {
                 anchors.fill: parent
-                onClicked: flowManager.showItem(index)
+                onClicked: flowManager.showItem(_id)
             }
         }
     }
@@ -26,5 +26,4 @@ Rectangle {
     DeviceTypesModel {
         id: deviceTypes
     }
-
 }

@@ -20,6 +20,10 @@ Rectangle {
         anchors.bottom: parent.bottom
         color: Color.BACKGROUND
 
+        ErrorBar {
+            id: errorBar
+        }
+
         Grid {
             columns: 1
             spacing: 8
@@ -30,7 +34,7 @@ Rectangle {
             }
 
             TextField {
-                id: roomName
+                id: tfDeviceName
                 Layout.fillWidth: true
             }
 
@@ -39,10 +43,10 @@ Rectangle {
             }
 
             ComboBox {
-              id: typeComboBox
+              id: cbDeviceType
               width: 64*u
               model: ListModel {
-               id: typesListModel
+               id: types
                ListElement { text: "Light"; _id: "1"}
                ListElement { text: "Thermometer"; _id: "2"}
              }
@@ -58,7 +62,7 @@ Rectangle {
             }
 
             ComboBox {
-              id: roomsCombo
+              id: cbDeviceRoom
               width: 64*u
               model: rooms
 
@@ -90,7 +94,7 @@ Rectangle {
             }
 
             TextField {
-                id: deviceIp
+                id: tfDeviceIp
                 Layout.fillWidth: true
             }
 
@@ -107,12 +111,26 @@ Rectangle {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        var room = {}
-                        room.name = roomName.text;
+                        var device = {}
+                        device.name = tfDeviceName.text;
+                        device.ip = tfDeviceIp.text;
+                        var selectedType = types.get(cbDeviceType.currentIndex)
+                        device.typeId = selectedType._id;
+                        var selectedRoom = rooms.get(cbDeviceRoom.currentIndex)
+                        device.roomId = selectedRoom._id;
 
-                        WebService.postRoom(settings.hostname, room, function(resp) {
-                            console.log(resp);
-                        });
+                        WebService.postDevice(settings.hostname, device,
+                                              function(resp) {
+                                                  errorBar.error = ""
+                                                  flowManager.goBack();
+                                              },
+                                              function(resp) {
+//                                                  for (var i = 0; i < resp.length; i++) {
+//                                                      resp[i]
+//                                                  }
+
+                                                  errorBar.error = resp[0];
+                                              });
                     }
                 }
             }

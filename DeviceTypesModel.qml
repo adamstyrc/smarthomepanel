@@ -3,21 +3,11 @@ import QtQuick 2.0
 ListModel {
     ListElement {
         name: "Lights"
+        _id: "1"
     }
 
     ListElement {
         name: "Measurements"
-    }
-
-    ListElement {
-        name: "Windows"
-    }
-
-    ListElement {
-        name: "Alarms"
-    }
-
-    ListElement {
-        name: "Others"
+        _id: "2"
     }
 }

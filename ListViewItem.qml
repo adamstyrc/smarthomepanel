@@ -28,7 +28,7 @@ Item {
     MouseArea {
         id: mouseArea
         anchors.fill: parent
-        onClicked: flowManager.showItem(index)
+        onClicked: flowManager.showItem(_id)
 
         drag.target: listItem
         drag.axis: Drag.XAxis

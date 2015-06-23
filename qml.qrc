@@ -25,6 +25,8 @@
         <file>Card.qml</file>
         <file>AddRoomView.qml</file>
         <file>AddDeviceView.qml</file>
+        <file>ErrorBar.qml</file>
+        <file>Controller.js</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>

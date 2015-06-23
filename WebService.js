@@ -1,15 +1,22 @@
 //var BASE = "";
 
-function request(BASE, verb, endpoint, obj, cb) {
+function request(BASE, verb, endpoint, obj, onSuccess, onError) {
     print('request: ' + verb + ' ' + BASE + (endpoint ? ('/' + endpoint) : ''))
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         print('xhr: on ready state change: ' + xhr.readyState)
         if(xhr.readyState === XMLHttpRequest.DONE) {
-            if(cb) {
-                console.log(xhr.responseText);
-                var res = JSON.parse(xhr.responseText.toString());
-                cb(res);
+            console.log(xhr.status + " - " + xhr.responseText);
+            var responseJson;
+            if(xhr.status === 200 && onSuccess) {
+                responseJson = JSON.parse(xhr.responseText.toString());
+                onSuccess(responseJson);
+            } else if (onError) {
+                if (xhr.responseText) {
+                    responseJson = JSON.parse(xhr.responseText.toString());
+                }
+
+                onError(responseJson);
             }
         }
     }
@@ -39,6 +46,10 @@ function getRooms(BASE, callback) {
 
 function postRoom(BASE, room, callback) {
     request(BASE, 'POST', 'rooms', room, callback)
+}
+
+function postDevice(BASE, device, onSuccess, onError) {
+    request(BASE, 'POST', 'devices', device, onSuccess, onError)
 }
 
 function putDeviceState(BASE, device, callback) {
