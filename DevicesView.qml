@@ -9,10 +9,18 @@ Rectangle {
         title: "Devices"
     }
 
-    Rectangle {
+    TabView {
+        id: tabView
+        anchors.top: navigationBar.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.top: navigationBar.bottom
+    }
+
+    Rectangle {
+
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: tabView.bottom
         anchors.bottom: parent.bottom
 
         DeviceTypesList {
