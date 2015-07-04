@@ -69,6 +69,4 @@ Rectangle {
     onSelectedIdChanged: {
         console.log("Selected devices type: " + selectedId);
     }
-
-
 }

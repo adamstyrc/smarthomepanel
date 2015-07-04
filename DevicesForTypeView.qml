@@ -42,16 +42,16 @@ Rectangle {
     }
 
     onVisibleChanged: {
-        console.log("Item.onVisibleChanged " + visible);
+        console.log("DFTL.onVisibleChanged " + visible);
+    }
 
-        if (visible) {
-            WebService.getDevicesForType(settings.hostname, flowManager.itemId, function(resp) {
-                devices.clear();
-                for(var i = 0; i < resp.length; i++) {
-                    devices.append(resp[i]);
-                    console.log(resp[i].name);
-                }
-            })
-        }
+    function refresh(selectedId) {
+        WebService.getDevicesForType(settings.hostname, selectedId, function(resp) {
+            devices.clear();
+            for(var i = 0; i < resp.length; i++) {
+                devices.append(resp[i]);
+                console.log(resp[i].name);
+            }
+        })
     }
 }

@@ -4,8 +4,6 @@ import QtQuick.Layouts 1.1
 import "Color.js" as Color
 import "WebService.js" as WebService
 
-
-
 Rectangle {
     id: root
 

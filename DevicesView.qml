@@ -14,25 +14,23 @@ Rectangle {
         anchors.top: navigationBar.bottom
         anchors.left: parent.left
         anchors.right: parent.right
+
+        onSelectedIdChanged: devicesForTypeView.refresh(selectedId);
     }
 
     Rectangle {
-
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: tabView.bottom
         anchors.bottom: parent.bottom
 
-        DeviceTypesList {
-            anchors.fill: parent
-            color: Color.COMPONENT_BACKGROUND
-            visible: flowManager.isTopLevel
-        }
 
-        DevicesForTypeList {
+        DevicesForTypeView {
+            id: devicesForTypeView
             anchors.fill: parent
             color: Color.BACKGROUND
-            visible: !flowManager.isTopLevel
+
+            Component.onCompleted: refresh(tabView.selectedId);
         }
     }
 }

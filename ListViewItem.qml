@@ -35,21 +35,21 @@ Item {
         drag.minimumX: 0
         drag.maximumX: listItem.width
 
-                onPressed: {
-                    console.log("pressed");
-                    dragged = true;
+        onPressed: {
+            console.log("pressed");
+            dragged = true;
 //                    positionStarted =
 //                   listItem.opacity = 0.5;
-                }
+        }
 
-                onPressAndHold: {
-                    console.log("pressedAndHold");
-                }
+        onPressAndHold: {
+            console.log("pressedAndHold");
+        }
 
-                onReleased: {
-                    console.log("released")
-                    dragged = false;
+        onReleased: {
+            console.log("released")
+            dragged = false;
 //                    listItem.opacity = 1;
-                }
+        }
     }
 }
