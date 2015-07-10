@@ -7,10 +7,13 @@ Rectangle {
     ListView {
         id: listView
         anchors.fill: parent
+        anchors.margins: Dimension.SPACING*u
         model: rooms
         delegate: listDelegate
-        spacing: Dimension.SPACING*u
+        spacing: Dimension.LIST_SPACING*u
     }
+
+
 
     Component {
         id: listDelegate

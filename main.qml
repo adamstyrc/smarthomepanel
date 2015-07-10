@@ -20,7 +20,7 @@ Window {
         property string login: ""
         property string password: ""
 
-        property string ip: "192.168.0.16"
+        property string ip: "172.16.0.100"
         property string port: "3000"
         property string hostname: "http://" + ip + ":" + port
 
@@ -37,6 +37,7 @@ Window {
 
         Component.onCompleted: {
             u = Math.floor(Screen.logicalPixelDensity)
+            console.log("u = " + u)
         }
 
         Keys.onSpacePressed: {

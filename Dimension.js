@@ -1,1 +1,2 @@
-var SPACING = 4;
+var SPACING = 6;
+var LIST_SPACING = 4;

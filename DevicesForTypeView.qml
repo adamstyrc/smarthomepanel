@@ -6,24 +6,23 @@ Rectangle {
     ListView {
         id: listView
         anchors.fill: parent
+        anchors.margins: Dimension.SPACING*u
         model: devices
         delegate: listDelegate
-//        header: header
-        spacing: Dimension.SPACING*u
+        spacing: Dimension.LIST_SPACING*u
     }
 
-    Component {
-        id: header
+    Image {
+        height: 24*u
+        width: 24*u
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 12*u
+        source: "img/img/add.png"
 
-        Rectangle {
-            height: 20*u
-            width: listView.width
-            color: "lightgreen"
-
-            Text {
-                anchors.centerIn: parent
-                text: deviceTypes.get(flowManager.itemId).name
-            }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: flowManager.showAddRoom()
         }
     }
 
@@ -49,6 +48,7 @@ Rectangle {
         WebService.getDevicesForType(settings.hostname, selectedId, function(resp) {
             devices.clear();
             for(var i = 0; i < resp.length; i++) {
+                resp[i].deviceState = resp[i].state;
                 devices.append(resp[i]);
                 console.log(resp[i].name);
             }

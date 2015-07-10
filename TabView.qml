@@ -8,7 +8,7 @@ Rectangle {
     anchors.topMargin: 1
     color: Color.MENU_CONTRAST
 
-    property int selectedId: 0;
+    property int selectedId: 1;
 
     Rectangle {
         id: bottomStripe
@@ -28,9 +28,13 @@ Rectangle {
 
         Row {
 
+            DeviceTypesModel {
+                id: deviceTypesModel
+            }
+
             Repeater {
                 id: repeater
-                model: 3
+                model: deviceTypesModel
 
                 Rectangle {
                     width: 40*u
@@ -39,7 +43,7 @@ Rectangle {
 
                     Text {
                         color: Color.MENU_CONTRAST
-                        text: qsTr("Lights" + index)
+                        text: qsTr(name)
                         anchors.centerIn: parent
                     }
 
@@ -51,13 +55,13 @@ Rectangle {
                         anchors.bottom: parent.bottom
                         color: Color.MENU_CONTRAST
 
-                        visible: selectedId == index
+                        visible: selectedId == _id
                     }
 
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            selectedId = index
+                            selectedId = _id
                         }
                     }
                 }

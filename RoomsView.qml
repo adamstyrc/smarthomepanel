@@ -33,7 +33,7 @@ Rectangle {
 
         RoomsList {
             anchors.fill: parent
-            color: Color.COMPONENT_BACKGROUND
+            color: Color.BACKGROUND
             visible: flowManager.isTopLevel
         }
 

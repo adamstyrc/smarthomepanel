@@ -1,4 +1,6 @@
 import QtQuick 2.0
+import "Color.js" as Color
+import "Dimension.js" as Dimension
 
 Item {
     id: listItem
@@ -14,9 +16,7 @@ Item {
         width: parent.width
         height: parent.height
         anchors.centerIn: parent
-        color: "lightGray"
-        border.color: "black"
-        border.width: 1
+        color: Color.COMPONENT_BACKGROUND
 
         Text {
             anchors.centerIn: parent
