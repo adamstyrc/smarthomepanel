@@ -1,17 +1,30 @@
 import QtQuick 2.0
 import "Color.js" as Color
 import "Dimension.js" as Dimension
+import "WebService.js" as WebService
+
 
 
 Item {
     width: parent.width
     height: 30*u
 
+    property bool value: deviceState === 1
+
     Rectangle {
         width: parent.width
         height: parent.height
         anchors.centerIn: parent
         color: Color.COMPONENT_BACKGROUND
+
+        Rectangle {
+            id: progress
+            anchors.fill: parent
+            color: "black"
+            opacity: 0.5
+            z: 2
+            visible: false
+        }
 
         Image {
             id: image
@@ -34,7 +47,7 @@ Item {
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             anchors.rightMargin: Dimension.SPACING*u
-            checked: deviceState === 1
+            checked: value
 
             Component.onCompleted: {
                 console.log("state: " + state)
@@ -48,6 +61,23 @@ Item {
             anchors.leftMargin: Dimension.SPACING*u
             text: name;
             font.pixelSize: 30
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                progress.visible = true;
+
+                var device = {};
+                device._id = _id;
+                device.state = value ? 0 : 1;
+
+                console.log("Setting device " + device._id + " to state:" + device.state)
+                WebService.putDeviceState(settings.hostname, device, function(resp) {
+                    value = resp.state === 1;
+                    progress.visible = false;
+                });
+            }
         }
     }
 }
