@@ -70,6 +70,8 @@ Rectangle {
         cardWidth = (containerWidth/ columnsCount);
     }
 
+    onVisibleChanged: refresh();
+
     function refresh() {
         WebService.getDevicesForRoom(settings.hostname, flowManager.itemId, function(resp) {
             devices.clear();
@@ -79,6 +81,9 @@ Rectangle {
             }
 
             grid.drawDevices();
-        })
+        },
+        function(err) {
+            console.log(err);
+            })
     }
 }
