@@ -18,13 +18,7 @@ Rectangle {
 
     function fillData() {
         tfDeviceName.text = deviceController.device.name;
-
-        // Use 1 format !
-        if (deviceController.device.ip) {
-            tfDeviceIp.text = deviceController.device.ip;
-        } else {
-            tfDeviceIp.text = deviceController.device.IP;
-        }
+        tfDeviceIp.text = deviceController.device.ip;
 
         rooms.clear();
         var roomsList = deviceController.rooms;
