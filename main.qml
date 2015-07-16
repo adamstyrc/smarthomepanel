@@ -46,6 +46,7 @@ Window {
 
         Keys.onBackPressed: {
             flowManager.goBack();
+
         }
     }
 
@@ -80,8 +81,12 @@ Window {
 
     Component {
         id: addDeviceViewComponent
+
         AddDeviceView {}
     }
+
+    DeviceController { id: deviceController }
+
 
     Component.onDestruction: {
         console.log("hostname: " + settings.hostname);

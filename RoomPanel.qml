@@ -7,7 +7,7 @@ import "WebService.js" as WebService
 Rectangle {
     id: root
 
-    property int minWidth: 80
+    property int minWidth: 60
     property int cardWidth: 80
 
     Flickable {
@@ -24,7 +24,7 @@ Rectangle {
                 id: devices
             }
 
-            function refresh() {
+            function drawDevices() {
 //                u = Math.floor(Screen.logicalPixelDensity)
 
                 for(var i = grid.children.length; i > 0 ; i--) {
@@ -61,14 +61,6 @@ Rectangle {
         }
     }
 
-    Component.onCompleted: {
-//        u = Math.floor(Screen.logicalPixelDensity)
-
-//        var containerWidth = root.width;
-//        var columnsCount = Math.floor(containerWidth / (minWidth * u));
-//        cardWidth = (containerWidth/ columnsCount);
-    }
-
 
     Screen.onHeightChanged: {
         console.log("onHeightChanged " + Screen.logicalPixelDensity + " " + Screen.pixelDensity);
@@ -78,20 +70,15 @@ Rectangle {
         cardWidth = (containerWidth/ columnsCount);
     }
 
-    onVisibleChanged: {
-        console.log("Item.onVisibleChanged " + visible);
+    function refresh() {
+        WebService.getDevicesForRoom(settings.hostname, flowManager.itemId, function(resp) {
+            devices.clear();
+            for(var i = 0; i < resp.length; i++) {
+                devices.append(resp[i]);
+                console.log(resp[i].name);
+            }
 
-        console.log(settings.hostname);
-        if (visible) {
-            WebService.getDevicesForRoom(settings.hostname, flowManager.itemId, function(resp) {
-                devices.clear();
-                for(var i = 0; i < resp.length; i++) {
-                    devices.append(resp[i]);
-                    console.log(resp[i].name);
-                }
-
-                grid.refresh();
-            })
-        }
+            grid.drawDevices();
+        })
     }
 }

@@ -11,6 +11,7 @@ Item {
         if (stackView.depth > 1) {
             if (isTopLevel) {
                 stackView.pop();
+                stackView.currentItem.refreshUI();
             } else {
                 Controller.isTopLevels[currentDepth] = true;
                 updateTopLevel();
@@ -33,8 +34,15 @@ Item {
     }
 
     function showAddRoom() {
+        deviceController.setDeviceId("");
         stackView.push(addDeviceViewComponent);
     }
+
+    function showEditDevice(deviceId) {
+        deviceController.setDeviceId(deviceId);
+        stackView.push(addDeviceViewComponent);
+    }
+
     function updateTopLevel() {
         isTopLevel = Controller.isTopLevels[currentDepth];
         console.log("topLevels: " + Controller.isTopLevels + " | depth: " + currentDepth);

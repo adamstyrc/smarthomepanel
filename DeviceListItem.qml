@@ -78,6 +78,10 @@ Item {
                     progress.visible = false;
                 });
             }
+
+            onPressAndHold: {
+                flowManager.showEditDevice(_id);
+            }
         }
     }
 }

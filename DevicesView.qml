@@ -7,6 +7,20 @@ Rectangle {
     NavigationBar {
         id: navigationBar
         title: "Devices"
+
+        Image {
+            height: parent.height - 4*u
+            width: parent.height - 4*u
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.margins: 4*u
+            source: "img/img/add.png"
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: flowManager.showAddRoom()
+            }
+        }
     }
 
     TabView {
@@ -31,6 +45,11 @@ Rectangle {
             color: Color.BACKGROUND
 
             Component.onCompleted: refresh(tabView.selectedId);
+
         }
+    }
+
+    function refreshUI() {
+        devicesForTypeView.refresh(tabView.selectedId);
     }
 }

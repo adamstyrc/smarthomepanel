@@ -38,9 +38,14 @@ Rectangle {
         }
 
         RoomPanel {
+            id: roomPanel
             anchors.fill: parent
             color: Color.BACKGROUND
             visible: !flowManager.isTopLevel
         }
+    }
+
+    function refreshUI() {
+        roomPanel.refresh();
     }
 }

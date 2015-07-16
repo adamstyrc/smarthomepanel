@@ -8,9 +8,57 @@ import "WebService.js" as WebService
 Rectangle {
     anchors.fill: parent
 
+    Component.onCompleted: {
+        deviceController.load(function() {
+//            console.log("Loaded: " + deviceController.device.name)
+
+            fillData();
+        })
+    }
+
+    function fillData() {
+        tfDeviceName.text = deviceController.device.name;
+
+        // Use 1 format !
+        if (deviceController.device.ip) {
+            tfDeviceIp.text = deviceController.device.ip;
+        } else {
+            tfDeviceIp.text = deviceController.device.IP;
+        }
+
+        rooms.clear();
+        var roomsList = deviceController.rooms;
+        for(var i = 0; i < roomsList.length; i++) {
+            roomsList[i].text = roomsList[i].name;
+            rooms.append(roomsList[i]);
+        }
+
+        cbDeviceRoom.currentIndex = deviceController.selectedRoomIndex
+    }
+
     NavigationBar {
         id: navigationBar
         title: "New device"
+
+        Image {
+            height: parent.height - 4*u
+            width: parent.height - 4*u
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.margins: 4*u
+            source: "img/close"
+//            visible: deviceController.isEdition
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    WebService.deleteDevice(settings.hostname, deviceController.device, function(resp) {
+                        console.log("Deleted device " + resp)
+                        flowManager.goBack();
+                    });
+                }
+            }
+        }
     }
 
     Rectangle {
@@ -68,24 +116,25 @@ Rectangle {
 
               ListModel {
                   id: rooms
-
                   ListElement { text: "Room"; _id: "0"}
               }
 
-              Component.onCompleted: {
-                  WebService.getRooms(settings.hostname, function(resp) {
-                      rooms.clear();
-                      for(var i = 0; i < resp.length; i++) {
-                          resp[i].text = resp[i].name;
-                          rooms.append(resp[i]);
-                          console.log(resp[i].name);
-                      }
-                  });
-              }
+//              Component.onCompleted: {
+//                  WebService.getRooms(settings.hostname, function(resp) {
+//                      rooms.clear();
+//                      for(var i = 0; i < resp.length; i++) {
+//                          resp[i].text = resp[i].name;
+//                          rooms.append(resp[i]);
+//                          console.log(resp[i].name);
+//                      }
+//                  });
+//              }
 
               onActivated: {
                   var name = model.get(index).text;
                   console.log("onActivated " + index + " _id:" + name);
+
+                  deviceController.selectedRoomIndex = index;
               }
             }
 
@@ -111,7 +160,7 @@ Rectangle {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        var device = {}
+                        var device = deviceController.device;
                         device.name = tfDeviceName.text;
                         device.ip = tfDeviceIp.text;
                         var selectedType = types.get(cbDeviceType.currentIndex)
@@ -119,16 +168,12 @@ Rectangle {
                         var selectedRoom = rooms.get(cbDeviceRoom.currentIndex)
                         device.roomId = selectedRoom._id;
 
-                        WebService.postDevice(settings.hostname, device,
+                        deviceController.save(device,
                                               function(resp) {
-                                                  errorBar.error = ""
+                                                  errorBar.error = "";
                                                   flowManager.goBack();
                                               },
                                               function(resp) {
-//                                                  for (var i = 0; i < resp.length; i++) {
-//                                                      resp[i]
-//                                                  }
-
                                                   errorBar.error = resp[0];
                                               });
                     }

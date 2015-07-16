@@ -12,20 +12,6 @@ Rectangle {
         spacing: Dimension.LIST_SPACING*u
     }
 
-    Image {
-        height: 24*u
-        width: 24*u
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.margins: 12*u
-        source: "img/img/add.png"
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked: flowManager.showAddRoom()
-        }
-    }
-
     Component {
         id: listDelegate
 
