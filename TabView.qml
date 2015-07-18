@@ -5,10 +5,16 @@ Rectangle {
     height: 20*u
     z: 2
 
-    anchors.topMargin: 1
     color: Color.MENU_CONTRAST
 
     property int selectedId: 1;
+
+    Rectangle {
+        id: topStripe
+        height: 1
+        anchors.top: parent.top
+        color: Color.MENU_CONTRAST
+    }
 
     Rectangle {
         id: bottomStripe
@@ -20,7 +26,7 @@ Rectangle {
     Rectangle {
         id: tabSpace
         color: Color.MENU_BACKGROUND
-        anchors.top: tabView.top
+        anchors.top: topStripe.bottom
         anchors.left: tabView.left
         anchors.right: tabView.right
 

@@ -100,8 +100,4 @@ Rectangle {
             cardWidth = 80;
         }
     }
-
-    function refreshUI() {
-
-    }
 }
