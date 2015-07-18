@@ -55,7 +55,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             anchors.leftMargin: Dimension.SPACING*u
             text: name;
-            font.pixelSize: 30
+            font.pixelSize: 10*u
         }
 
         MouseArea {

@@ -7,7 +7,7 @@ Rectangle {
     Timer {
         interval: 3000
         repeat: true
-        running: parent.visible
+//        running: parent.visible
         onTriggered: refreshUI();
     }
 }
