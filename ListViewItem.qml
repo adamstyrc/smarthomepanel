@@ -17,7 +17,7 @@ Item {
         width: parent.width
         height: parent.height
         anchors.centerIn: parent
-        color: Color.COMPONENT_BACKGROUND
+        color: mouseArea.pressed ? Color.PROGRESS : Color.COMPONENT_BACKGROUND
 
         Text {
             anchors.centerIn: parent

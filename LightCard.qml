@@ -21,13 +21,8 @@ Item {
         anchors.centerIn: parent
         color: Color.COMPONENT_BACKGROUND
 
-        Rectangle {
+        Progress {
             id: progress
-            anchors.fill: parent
-            color: "black"
-            opacity: 0.5
-            z: 2
-            visible: false
         }
 
         Rectangle {

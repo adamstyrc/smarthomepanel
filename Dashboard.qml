@@ -6,7 +6,7 @@ import "Color.js" as Color
 Rectangle {
     anchors.fill: parent
 
-    property int cardWidth: 180
+    property int cardWidth: 80*u
 
     NavigationBar {
         id: navigationBar
@@ -84,12 +84,12 @@ Rectangle {
 
     onHeightChanged: {
         console.log("onHeightChanged")
-        adjustCardSize();
+//        adjustCardSize();
     }
 
     Component.onCompleted: {
         console.log("onCompleted")
-        adjustCardSize();
+//        adjustCardSize();
     }
 
     function adjustCardSize() {
@@ -99,5 +99,9 @@ Rectangle {
         if (cardWidth < 80) {
             cardWidth = 80;
         }
+    }
+
+    function refreshUI() {
+
     }
 }

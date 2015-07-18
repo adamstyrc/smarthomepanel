@@ -15,15 +15,10 @@ Item {
         width: parent.width
         height: parent.height
         anchors.centerIn: parent
-        color: Color.COMPONENT_BACKGROUND
+        color: mouseArea.pressed ? Color.PROGRESS : Color.COMPONENT_BACKGROUND
 
-        Rectangle {
+        Progress {
             id: progress
-            anchors.fill: parent
-            color: "black"
-            opacity: 0.5
-            z: 2
-            visible: false
         }
 
         Image {
@@ -35,10 +30,10 @@ Item {
             anchors.margins: Dimension.SPACING*u
             source: "img/light_icon"
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: flowManager.showAddRoom()
-            }
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked: flowManager.showAddRoom()
+//            }
         }
 
         OnOffButton {
@@ -64,6 +59,7 @@ Item {
         }
 
         MouseArea {
+            id: mouseArea
             anchors.fill: parent
             onClicked: {
                 progress.visible = true;

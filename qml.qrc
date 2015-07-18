@@ -29,6 +29,7 @@
         <file>Controller.js</file>
         <file>TabView.qml</file>
         <file>DeviceController.qml</file>
+        <file>Progress.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>
@@ -38,5 +39,4 @@
         <file>img/add.png</file>
         <file alias="close">img/close.png</file>
     </qresource>
-
 </RCC>
