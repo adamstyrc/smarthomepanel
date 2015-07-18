@@ -2,7 +2,7 @@ import QtQuick 2.0
 import "Color.js" as Color
 
 
-Rectangle {
+RefreshableView {
     anchors.fill: parent
 
     NavigationBar {
@@ -45,7 +45,7 @@ Rectangle {
         }
     }
 
-    function refreshUI() {
+    onRefreshUI: {
         roomPanel.refresh();
     }
 }

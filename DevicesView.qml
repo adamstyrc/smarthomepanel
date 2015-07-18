@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import "Color.js" as Color
 
-Rectangle {
+RefreshableView {
     anchors.fill: parent
 
     NavigationBar {
@@ -49,14 +49,18 @@ Rectangle {
         }
     }
 
-    function refreshUI() {
+    onRefreshUI: {
         devicesForTypeView.refresh(tabView.selectedId);
     }
 
-    Timer {
-        interval: 3000
-        repeat: true
-        running: true
-        onTriggered: refreshUI();
-    }
+//    function refreshUI() {
+//        devicesForTypeView.refresh(tabView.selectedId);
+//    }
+
+//    Timer {
+//        interval: 3000
+//        repeat: true
+//        running: true
+//        onTriggered: refreshUI();
+//    }
 }

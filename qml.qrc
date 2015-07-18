@@ -30,6 +30,7 @@
         <file>TabView.qml</file>
         <file>DeviceController.qml</file>
         <file>Progress.qml</file>
+        <file>RefreshableView.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>
