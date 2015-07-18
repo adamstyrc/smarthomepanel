@@ -19,7 +19,7 @@ Item {
         width: parent.width - Dimension.SPACING*u
         height: parent.height - Dimension.SPACING*u
         anchors.centerIn: parent
-        color: Color.COMPONENT_BACKGROUND
+        color: mouseArea.pressed ? Color.PROGRESS : Color.COMPONENT_BACKGROUND
 
         Progress {
             id: progress
@@ -59,6 +59,10 @@ Item {
                         value = resp.state === 1;
                         progress.visible = false;
                     });
+                }
+
+                onPressAndHold: {
+                    flowManager.showEditDevice(_id);
                 }
 
             }

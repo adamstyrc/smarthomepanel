@@ -52,4 +52,11 @@ Rectangle {
     function refreshUI() {
         devicesForTypeView.refresh(tabView.selectedId);
     }
+
+    Timer {
+        interval: 3000
+        repeat: true
+        running: true
+        onTriggered: refreshUI();
+    }
 }
