@@ -27,7 +27,7 @@ Item {
             } else {
                 device = {
                     name: "",
-                    IP: ""
+                    ip: ""
                 }
                 callback();
             }

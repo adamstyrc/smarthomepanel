@@ -36,12 +36,16 @@ Window {
         focus: true
 
         Component.onCompleted: {
-            u = Math.floor(Screen.logicalPixelDensity)
+            u = Screen.logicalPixelDensity
+            if (u > 6) {
+                u = 6;
+            }
+
             console.log("u = " + u)
         }
-
         Keys.onSpacePressed: {
             flowManager.goBack();
+
         }
 
         Keys.onBackPressed: {

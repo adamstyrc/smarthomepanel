@@ -7,8 +7,8 @@ import "WebService.js" as WebService
 Rectangle {
     id: root
 
-    property int minWidth: 60
-    property int cardWidth: 80
+    property int minWidth: 80
+    property int cardWidth: 0
 
     Flickable {
         flickableDirection: Flickable.VerticalFlick
@@ -25,8 +25,6 @@ Rectangle {
             }
 
             function drawDevices() {
-//                u = Math.floor(Screen.logicalPixelDensity)
-
                 for(var i = grid.children.length; i > 0 ; i--) {
                   console.log("destroying: " + i)
                   grid.children[i-1].destroy()
@@ -62,13 +60,13 @@ Rectangle {
     }
 
 
-    Screen.onHeightChanged: {
-        console.log("onHeightChanged " + Screen.logicalPixelDensity + " " + Screen.pixelDensity);
+//    Screen.onHeightChanged: {
+//        console.log("onHeightChanged " + Screen.logicalPixelDensity + " " + Screen.pixelDensity);
 
-        var containerWidth = Screen.width;
-        var columnsCount = Math.floor(containerWidth / (minWidth * u));
-        cardWidth = (containerWidth/ columnsCount);
-    }
+//        var containerWidth = Screen.width;
+//        var columnsCount = Math.floor(containerWidth / (minWidth));
+//        cardWidth = (containerWidth / columnsCount);
+//    }
 
     onVisibleChanged: refresh();
 
