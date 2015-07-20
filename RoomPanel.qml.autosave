@@ -60,7 +60,7 @@ Rectangle {
 
         onDragEnded: {
             if (atYBeginning) {
-                console.log("PullToRefresh:")
+                console.log("PullToRefresh");
                 refreshUI();
             }
         }
@@ -89,6 +89,6 @@ Rectangle {
         },
         function(err) {
             console.log(err);
-            })
+        })
     }
 }

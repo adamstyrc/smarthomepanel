@@ -10,6 +10,13 @@ Rectangle {
         model: devices
         delegate: listDelegate
         spacing: Dimension.LIST_SPACING*u
+
+        onDragEnded: {
+            if (atYBeginning) {
+                console.log("PullToRefresh:")
+                refreshUI();
+            }
+        }
     }
 
     Component {
