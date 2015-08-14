@@ -21,6 +21,10 @@ function request(BASE, verb, endpoint, obj, onSuccess, onError) {
                     responseJson = JSON.parse(xhr.responseText.toString());
                 }
 
+                if (xhr.status === 0) {
+                    responseJson = ["Could not connect server!"];
+                }
+
                 onError(responseJson);
             }
         }
@@ -31,6 +35,10 @@ function request(BASE, verb, endpoint, obj, onSuccess, onError) {
     var data = obj?JSON.stringify(obj):''
     console.log("Body: " + data);
     xhr.send(data)
+}
+
+function getAuthenticated(BASE, onSuccess, onError) {
+    request(BASE, 'GET', "auth", null, onSuccess, onError);
 }
 
 
@@ -52,8 +60,8 @@ function getDevice(BASE, deviceId, callback) {
     request(BASE, 'GET', endpoint + deviceId, null, callback)
 }
 
-function getRooms(BASE, callback) {
-    request(BASE, 'GET', 'rooms', null, callback)
+function getRooms(BASE, onSuccess, onError) {
+    request(BASE, 'GET', 'rooms', null, onSuccess, onError)
 }
 
 function postRoom(BASE, room, callback) {

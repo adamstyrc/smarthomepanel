@@ -60,7 +60,7 @@ Rectangle {
 
         onDragEnded: {
             if (atYBeginning) {
-                console.log("PullToRefresh:")
+                console.log("PullToRefresh");
                 refreshUI();
             }
         }
@@ -78,17 +78,20 @@ Rectangle {
     onVisibleChanged: refresh();
 
     function refresh() {
-        WebService.getDevicesForRoom(settings.hostname, flowManager.itemId, function(resp) {
-            devices.clear();
-            for(var i = 0; i < resp.length; i++) {
-                devices.append(resp[i]);
-                console.log(resp[i].name);
-            }
-
-            grid.drawDevices();
-        },
-        function(err) {
-            console.log(err);
-            })
+        WebService.getDevicesForRoom(settings.hostname, flowManager.itemId,
+                                     function(resp) {
+                                        devices.clear();
+                                        for(var i = 0; i < resp.length; i++) {
+                                            devices.append(resp[i]);
+                                            console.log(resp[i].name);
+                                            errorBar.clear();
+                                        }
+                                        grid.drawDevices();
+                                    },
+                                     function(error) {
+                                         console.log("error" + error);
+                                         errorBar.error = error[0];
+                                         devices.clear();
+                                     });
     }
 }

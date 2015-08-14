@@ -31,15 +31,27 @@ RefreshableView {
         anchors.top: navigationBar.bottom
         anchors.bottom: parent.bottom
 
+        ErrorBar {
+            id: errorBar
+        }
+
         RoomsList {
-            anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: errorBar.bottom
+            anchors.bottom: parent.bottom
+
             color: Color.BACKGROUND
             visible: flowManager.isTopLevel
         }
 
         RoomPanel {
             id: roomPanel
-            anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: errorBar.bottom
+            anchors.bottom: parent.bottom
+
             color: Color.BACKGROUND
             visible: !flowManager.isTopLevel
         }

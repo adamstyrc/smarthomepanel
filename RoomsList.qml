@@ -51,7 +51,13 @@ Rectangle {
             for(var i = 0; i < resp.length; i++) {
                 rooms.append(resp[i]);
                 console.log(resp[i].name);
+                errorBar.error = "";
             }
-        })
+        },
+        function(response) {
+            console.log("error" + response);
+            errorBar.error = response[0];
+            rooms.clear();
+        });
     }
 }

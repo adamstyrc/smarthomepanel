@@ -20,7 +20,7 @@ Window {
         property string login: ""
         property string password: ""
 
-        property string ip: "172.16.0.100"
+        property string ip: "172.16.0.105"
         property string port: "3000"
         property string hostname: "http://" + ip + ":" + port
 

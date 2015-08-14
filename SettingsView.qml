@@ -21,6 +21,10 @@ Rectangle {
         anchors.bottom: parent.bottom
         color: Color.BACKGROUND
 
+        ErrorBar {
+            id: errorBar
+        }
+
         Grid {
             columns: 1
             spacing: 8
@@ -62,11 +66,11 @@ Rectangle {
                 id: ip
                 Layout.fillWidth: true
                 text: settings.ip
-                onTextChanged: {
-                    if (visible) {
-                        settings.ip = String(text);
-                    }
-                }
+//                onTextChanged: {
+//                    if (visible) {
+//                        settings.ip = String(text);
+//                    }
+//                }
             }
 
             Label {
@@ -77,9 +81,37 @@ Rectangle {
                 id: port
                 Layout.fillWidth: true
                 text: settings.port
-                onTextChanged: {
-                    if (visible) {
-                        settings.port = String(text);
+//                onTextChanged: {
+//                    if (visible) {
+//                        settings.port = String(text);
+//                    }
+//                }
+            }
+
+            Rectangle {
+                width: 64*u
+                height: 16*u
+                color: "green"
+
+                Text {
+                    text: "Confirm"
+                    anchors.centerIn: parent
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        WebService.getAuthenticated("http://" + ip.text + ":" + port.text,
+                                                    function(resp) {
+                                                        settings.ip = ip.text;
+                                                        settings.port = port.text;
+                                                        errorBar.error = "";
+                                                        flowManager.goBack();
+                                                    },
+                                                    function(response) {
+                                                        console.log("error" + response);
+                                                        errorBar.error = response[0];
+                                                    });
                     }
                 }
             }
