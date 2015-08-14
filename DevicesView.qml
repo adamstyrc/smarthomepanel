@@ -23,6 +23,7 @@ RefreshableView {
         }
     }
 
+
     TabView {
         id: tabView
         anchors.top: navigationBar.bottom
@@ -32,10 +33,17 @@ RefreshableView {
         onSelectedIdChanged: devicesForTypeView.refresh(selectedId);
     }
 
+    ErrorBar {
+        anchors.top: tabView.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        id: errorBar
+    }
+
     Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.top: tabView.bottom
+        anchors.top: errorBar.bottom
         anchors.bottom: parent.bottom
 
 

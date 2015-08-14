@@ -42,10 +42,10 @@ function getAuthenticated(BASE, onSuccess, onError) {
 }
 
 
-function getDevicesForType(BASE, typeId, callback) {
+function getDevicesForType(BASE, typeId, onSuccess, onError) {
     var endpoint = 'devices/type/';
     console.log("endpoint ", endpoint + typeId);
-    request(BASE, 'GET', endpoint + typeId, null, callback)
+    request(BASE, 'GET', endpoint + typeId, null, onSuccess, onError)
 }
 
 function getDevicesForRoom(BASE, roomId, callback) {

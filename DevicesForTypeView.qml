@@ -38,13 +38,20 @@ Rectangle {
     }
 
     function refresh(selectedId) {
-        WebService.getDevicesForType(settings.hostname, selectedId, function(resp) {
-            devices.clear();
-            for(var i = 0; i < resp.length; i++) {
-                resp[i].deviceState = resp[i].state;
-                devices.append(resp[i]);
-                console.log(resp[i].name);
-            }
-        })
+        WebService.getDevicesForType(settings.hostname, selectedId,
+                                     function(resp) {
+                                         devices.clear();
+                                         for(var i = 0; i < resp.length; i++) {
+                                            resp[i].deviceState = resp[i].state;
+                                            devices.append(resp[i]);
+                                            console.log(resp[i].name);
+
+                                             errorBar.clear();
+                                         }
+                                     },
+                                         function(error) {
+                                             errorBar.error = error[0];
+                                             devices.clear();
+                                         });
     }
 }
