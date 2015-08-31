@@ -79,6 +79,24 @@ Rectangle {
                     text: "Settings"
                 }
             }
+
+            Rectangle {
+                width: cardWidth
+                height: cardWidth
+                color: Color.COMPONENT_BACKGROUND
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        flowManager.showCamera();
+                    }
+                }
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "Camera"
+                }
+            }
         }
     }
 

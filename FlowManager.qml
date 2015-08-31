@@ -33,6 +33,10 @@ Item {
         stackView.push(settingsViewComponent);
     }
 
+    function showCamera() {
+        stackView.push(cameraViewComponent);
+    }
+
     function showAddRoom() {
         deviceController.setDeviceId("");
         stackView.push(addDeviceViewComponent);

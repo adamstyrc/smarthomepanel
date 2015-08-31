@@ -79,6 +79,12 @@ Window {
     }
 
     Component {
+        id: cameraViewComponent
+
+        CameraView {}
+    }
+
+    Component {
         id: addRoomViewComponent
         AddRoomView {}
     }
