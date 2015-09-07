@@ -13,19 +13,17 @@ Rectangle {
         id: topStripe
         height: 1
         anchors.top: parent.top
-        color: Color.MENU_CONTRAST
     }
 
     Rectangle {
         id: bottomStripe
         height: 1
         anchors.bottom: parent.bottom
-        color: Color.MENU_CONTRAST
     }
 
     Rectangle {
         id: tabSpace
-        color: Color.MENU_BACKGROUND
+        color: Color.LIGHT_GREEN
         anchors.top: topStripe.bottom
         anchors.left: tabView.left
         anchors.right: tabView.right
@@ -45,12 +43,15 @@ Rectangle {
                 Rectangle {
                     width: 40*u
                     height: tabSpace.height
-                    color: Color.MENU_BACKGROUND
+                    color: Color.LIGHT_GREEN
 
                     Text {
-                        color: Color.MENU_CONTRAST
+                        color: Color.BLACK
                         text: qsTr(name)
                         anchors.centerIn: parent
+                        font.pixelSize: 7*u
+                        font.capitalization: Font.AllUppercase
+                        font.family: nexaLight.name
                     }
 
 
@@ -59,7 +60,7 @@ Rectangle {
                         height: 2*u
                         width: parent.width
                         anchors.bottom: parent.bottom
-                        color: Color.MENU_CONTRAST
+                        color: Color.BACKGROUND
 
                         visible: selectedId == _id
                     }

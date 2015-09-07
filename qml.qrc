@@ -46,5 +46,15 @@
         <file>img/icon_rooms.png</file>
         <file>img/icon_camera.png</file>
         <file>img/icon_settings.png</file>
+        <file>img/icon_light_off.png</file>
+        <file>img/icon_light_on.png</file>
+        <file>img/icon_add.png</file>
+        <file>img/icon_remove.png</file>
+        <file>img/icon_up.png</file>
+        <file>img/line_camera.png</file>
+        <file>img/line_device_form.png</file>
+        <file>img/line_devices.png</file>
+        <file>img/line_rooms.png</file>
+        <file>img/logo.png</file>
     </qresource>
 </RCC>

@@ -11,4 +11,5 @@ var LIGHT_BLUE = "#1F94CF"
 var LIGHT_GREEN = "#4EAD76"
 var LIGHT_RED = "#F96A5E"
 var LIGHT_GRAY = "#B6B6B6"
+var BLACK = "#000000"
 

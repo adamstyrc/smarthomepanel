@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import QtQuick.Window 2.1
 import QtQuick.Layouts 1.1
 import "Color.js" as Color
@@ -38,6 +38,7 @@ Rectangle {
                     id: roomsImage
                     width: 30*u
                     height: 35*u
+                    mipmap: true
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 30*u
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -69,6 +70,7 @@ Rectangle {
                     id: devicesImage
                     width: 30*u
                     height: 35*u
+                    mipmap: true
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 30*u
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -99,6 +101,7 @@ Rectangle {
                     id: settingsImage
                     width: 30*u
                     height: 30*u
+                    mipmap: true
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 30*u
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -129,6 +132,7 @@ Rectangle {
                     id: cameraImage
                     width: 35*u
                     height: 30*u
+                    mipmap: true
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 30*u
                     anchors.horizontalCenter: parent.horizontalCenter

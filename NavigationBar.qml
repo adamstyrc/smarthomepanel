@@ -28,5 +28,8 @@ Rectangle {
         anchors.centerIn: parent
         color: Color.MENU_CONTRAST
         text: title
+        font.pixelSize: 7*u
+        font.family: nexaBold.name
+        font.capitalization: Font.AllUppercase
     }
 }

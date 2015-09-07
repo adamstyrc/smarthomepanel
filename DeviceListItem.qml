@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import "Color.js" as Color
 import "Dimension.js" as Dimension
 import "WebService.js" as WebService
@@ -23,13 +23,14 @@ Item {
 
         Image {
             id: image
-            height: 24*u
-            width: 24*u
+            height: 16*u
+            width: 16*u
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
             anchors.margins: Dimension.SPACING*u
-            source: "img/light_icon"
-
+            source: value ? "qrc:/img/img/icon_light_on.png" : "qrc:/img/img/icon_light_off.png"
+            fillMode: Image.PreserveAspectFit
+            mipmap: true
 //            MouseArea {
 //                anchors.fill: parent
 //                onClicked: flowManager.showAddRoom()

@@ -14,7 +14,8 @@ RefreshableView {
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             anchors.margins: 4*u
-            source: "img/img/add.png"
+            source: "qrc:/img/img/icon_add.png"
+            fillMode: Image.Pad
 
             MouseArea {
                 anchors.fill: parent
@@ -29,7 +30,7 @@ RefreshableView {
         anchors.top: navigationBar.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-
+        color: Color.BACKGROUND
         onSelectedIdChanged: devicesForTypeView.refresh(selectedId);
     }
 
