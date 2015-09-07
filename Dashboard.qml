@@ -51,7 +51,7 @@ Rectangle {
                     color: Color.LIGHT_BLUE
                     text: "R O O M S"
 
-                    font.pixelSize: 10
+                    font.pixelSize: 4*u
                     font.family: nexaBold.name
                 }
             }
@@ -82,7 +82,7 @@ Rectangle {
                     color: Color.LIGHT_GREEN
                     text: "D E V I C E S"
 
-                    font.pixelSize: 10
+                    font.pixelSize: 4*u
                     font.family: nexaBold.name
                 }
             }
@@ -112,7 +112,7 @@ Rectangle {
                     color: Color.LIGHT_GRAY
                     text: "S E T T I N G S"
 
-                    font.pixelSize: 10
+                    font.pixelSize: 4*u
                     font.family: nexaBold.name
                 }
             }
@@ -140,9 +140,9 @@ Rectangle {
                     anchors.bottomMargin: 20*u
                     anchors.horizontalCenter: parent.horizontalCenter
                     color: Color.LIGHT_RED
-                    text: "CAMERA"
+                    text: "C A M E R A"
 
-                    font.pixelSize: 10
+                    font.pixelSize: 4*u
                     font.family: nexaBold.name
                 }
             }
