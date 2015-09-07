@@ -32,6 +32,8 @@
         <file>Progress.qml</file>
         <file>RefreshableView.qml</file>
         <file>CameraView.qml</file>
+        <file>fonts/Nexa_light.otf</file>
+        <file>fonts/Nexa_bold.otf</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>
@@ -40,5 +42,9 @@
         <file alias="previous_item">img/ic_action_previous_item.png</file>
         <file>img/add.png</file>
         <file alias="close">img/close.png</file>
+        <file>img/icon_devices.png</file>
+        <file>img/icon_rooms.png</file>
+        <file>img/icon_camera.png</file>
+        <file>img/icon_settings.png</file>
     </qresource>
 </RCC>

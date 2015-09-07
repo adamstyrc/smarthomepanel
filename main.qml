@@ -97,6 +97,8 @@ Window {
 
     DeviceController { id: deviceController }
 
+    FontLoader{ id: nexaBold; source: "qrc:/fonts/Nexa_bold.otf" }
+    FontLoader{ id: nexaLight; source: "qrc:/fonts/Nexa_light.otf" }
 
     Component.onDestruction: {
         console.log("hostname: " + settings.hostname);

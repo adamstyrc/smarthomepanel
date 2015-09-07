@@ -26,11 +26,7 @@ Rectangle {
             anchors.centerIn: parent
 
 
-            Rectangle {
-                width: cardWidth
-                height: cardWidth
-                color: Color.COMPONENT_BACKGROUND
-
+            Card {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -38,17 +34,30 @@ Rectangle {
                     }
                 }
 
+                Image {
+                    id: roomsImage
+                    width: 30*u
+                    height: 35*u
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 30*u
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    source: "qrc:/img/img/icon_rooms.png"
+                }
+
                 Text {
-                    anchors.centerIn: parent
-                    text: "Rooms"
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 20*u
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    color: Color.LIGHT_BLUE
+                    text: "R O O M S"
+
+                    font.pixelSize: 10
+                    font.family: nexaBold.name
                 }
             }
 
-            Rectangle {
-                width: cardWidth
-                height: cardWidth
-                color: Color.COMPONENT_BACKGROUND
 
+            Card {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -56,17 +65,29 @@ Rectangle {
                     }
                 }
 
+                Image {
+                    id: devicesImage
+                    width: 30*u
+                    height: 35*u
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 30*u
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    source: "qrc:/img/img/icon_devices.png"
+                }
+
                 Text {
-                    anchors.centerIn: parent
-                    text: "Devices"
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 20*u
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    color: Color.LIGHT_GREEN
+                    text: "D E V I C E S"
+
+                    font.pixelSize: 10
+                    font.family: nexaBold.name
                 }
             }
 
-            Rectangle {
-                width: cardWidth
-                height: cardWidth
-                color: Color.COMPONENT_BACKGROUND
-
+            Card {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -74,17 +95,29 @@ Rectangle {
                     }
                 }
 
+                Image {
+                    id: settingsImage
+                    width: 30*u
+                    height: 30*u
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 30*u
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    source: "qrc:/img/img/icon_settings.png"
+                }
+
                 Text {
-                    anchors.centerIn: parent
-                    text: "Settings"
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 20*u
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    color: Color.LIGHT_GRAY
+                    text: "S E T T I N G S"
+
+                    font.pixelSize: 10
+                    font.family: nexaBold.name
                 }
             }
 
-            Rectangle {
-                width: cardWidth
-                height: cardWidth
-                color: Color.COMPONENT_BACKGROUND
-
+            Card {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -92,9 +125,25 @@ Rectangle {
                     }
                 }
 
+                Image {
+                    id: cameraImage
+                    width: 35*u
+                    height: 30*u
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 30*u
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    source: "qrc:/img/img/icon_camera.png"
+                }
+
                 Text {
-                    anchors.centerIn: parent
-                    text: "Camera"
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 20*u
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    color: Color.LIGHT_RED
+                    text: "CAMERA"
+
+                    font.pixelSize: 10
+                    font.family: nexaBold.name
                 }
             }
         }
