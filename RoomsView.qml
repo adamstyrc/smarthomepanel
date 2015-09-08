@@ -9,14 +9,14 @@ RefreshableView {
         id: navigationBar
         title: "Rooms"
 
-        Image {
+        SquareImage {
             height: parent.height - 4*u
             width: parent.height - 4*u
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             anchors.margins: 4*u
-            visible: stackView.depth > 1
-            source: "img/img/add.png"
+            imgSource: "qrc:/img/img/icon_add.png"
+            imgFill: 0.3
 
             MouseArea {
                 anchors.fill: parent

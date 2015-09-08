@@ -8,20 +8,35 @@ RefreshableView {
         id: navigationBar
         title: "Devices"
 
-        Image {
+        SquareImage {
             height: parent.height - 4*u
             width: parent.height - 4*u
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             anchors.margins: 4*u
-            source: "qrc:/img/img/icon_add.png"
-            fillMode: Image.Pad
+            imgSource: "qrc:/img/img/icon_add.png"
+            imgFill: 0.30
 
             MouseArea {
                 anchors.fill: parent
                 onClicked: flowManager.showAddRoom()
             }
         }
+
+//        Image {
+//            height: parent.height - 4*u
+//            width: parent.height - 4*u
+//            anchors.right: parent.right
+//            anchors.verticalCenter: parent.verticalCenter
+//            anchors.margins: 4*u
+//            source: "qrc:/img/img/icon_add.png"
+//            fillMode: Image.Pad
+
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked: flowManager.showAddRoom()
+//            }
+//        }
     }
 
 

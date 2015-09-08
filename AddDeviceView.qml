@@ -34,14 +34,14 @@ Rectangle {
         id: navigationBar
         title: "New device"
 
-        Image {
+        SquareImage {
             height: parent.height - 4*u
             width: parent.height - 4*u
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             anchors.margins: 4*u
-            source: "img/close"
-//            visible: deviceController.isEdition
+            imgSource: "qrc:/img/img/icon_remove.png"
+            imgFill: 0.30
 
             MouseArea {
                 anchors.fill: parent

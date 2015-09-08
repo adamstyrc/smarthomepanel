@@ -34,6 +34,7 @@
         <file>CameraView.qml</file>
         <file>fonts/Nexa_light.otf</file>
         <file>fonts/Nexa_bold.otf</file>
+        <file>SquareImage.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>
