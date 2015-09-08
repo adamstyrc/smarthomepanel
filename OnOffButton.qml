@@ -13,14 +13,14 @@ Button {
             implicitWidth: 40
             implicitHeight: 25
             border.width: control.activeFocus ? 2 : 1
-            border.color: checked ? Color.MENU_BACKGROUND : Color.MENU_CONTRAST
+            border.color: checked ? Color.MENU_BACKGROUND : Color.WHITE
             radius: 10
 
 //            gradient: Gradient {
 //                GradientStop { position: 0 ; color: control.pressed ? "#ccc" : "#eee" }
 //                GradientStop { position: 1 ; color: control.pressed ? "#aaa" : "#ccc" }
 //            }
-            color: control.checked ? Color.MENU_CONTRAST : Color.MENU_BACKGROUND
+            color: control.checked ? Color.WHITE : Color.MENU_BACKGROUND
            
         }
     }
@@ -28,6 +28,6 @@ Button {
     Text {
         anchors.centerIn: parent
         text: parent.text
-        color: checked ? Color.MENU_BACKGROUND  : Color.MENU_CONTRAST
+        color: checked ? Color.MENU_BACKGROUND  : Color.WHITE
     }
 }

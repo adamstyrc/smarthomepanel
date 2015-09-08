@@ -1,11 +1,12 @@
 import QtQuick 2.5
 import "Color.js" as Color
+
 Rectangle {
     id: tabView
     height: 20*u
     z: 2
 
-    color: Color.MENU_CONTRAST
+    color: Color.WHITE
 
     property int selectedId: 1;
 
@@ -44,14 +45,21 @@ Rectangle {
                     height: tabSpace.height
                     color: Color.LIGHT_GREEN
 
-                    Text {
+                    ShpLightText {
                         color: Color.BLACK
                         text: qsTr(name)
                         anchors.centerIn: parent
                         font.pixelSize: 7*u
-                        font.capitalization: Font.AllUppercase
-                        font.family: nexaLight.name
                     }
+
+//                    Text {
+//                        color: Color.BLACK
+//                        text: qsTr(name)
+//                        anchors.centerIn: parent
+//                        font.pixelSize: 7*u
+//                        font.capitalization: Font.AllUppercase
+//                        font.family: nexaLight.name
+//                    }
 
 
                     Rectangle {

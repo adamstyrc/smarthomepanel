@@ -43,7 +43,7 @@ Rectangle {
 
     Text {
         anchors.centerIn: parent
-        color: Color.MENU_CONTRAST
+        color: Color.WHITE
         text: title
         font.pixelSize: 8*u
         font.family: nexaBold.name

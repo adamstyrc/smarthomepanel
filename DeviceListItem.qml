@@ -50,9 +50,8 @@ Item {
             }
         }
 
-        Text {
+        ShpLightText {
             anchors.left: image.right
-//            anchors.right: image.right
             anchors.verticalCenter: parent.verticalCenter
             anchors.leftMargin: Dimension.SPACING*u
             text: name;

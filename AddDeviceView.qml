@@ -71,7 +71,7 @@ Rectangle {
             spacing: 8
             anchors.centerIn: parent
 
-            Label {
+            ShpLightText {
                 text: "Name"
             }
 
@@ -80,7 +80,7 @@ Rectangle {
                 Layout.fillWidth: true
             }
 
-            Label {
+            ShpLightText {
                 text: "Type"
             }
 
@@ -99,7 +99,7 @@ Rectangle {
               }
             }
 
-            Label {
+            ShpLightText {
                 text: "Room"
             }
 
@@ -132,7 +132,7 @@ Rectangle {
               }
             }
 
-            Label {
+            ShpLightText {
                 text: "IP"
             }
 

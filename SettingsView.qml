@@ -30,7 +30,7 @@ Rectangle {
             spacing: 8
             anchors.centerIn: parent
 
-            Label {
+            ShpLightText {
                 text: "Login"
             }
 
@@ -43,7 +43,7 @@ Rectangle {
                 }
             }
 
-            Label {
+            ShpLightText {
                 text: "Password"
             }
 
@@ -58,7 +58,7 @@ Rectangle {
 
             }
 
-            Label {
+            ShpLightText {
                 text: "IP"
             }
 
@@ -73,7 +73,7 @@ Rectangle {
 //                }
             }
 
-            Label {
+            ShpLightText {
                 text: "Port"
             }
 

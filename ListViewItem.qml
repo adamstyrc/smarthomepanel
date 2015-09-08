@@ -19,10 +19,10 @@ Item {
         anchors.centerIn: parent
         color: mouseArea.pressed ? Color.PROGRESS : Color.COMPONENT_BACKGROUND
 
-        Text {
+        ShpLightText {
             anchors.centerIn: parent
             text: name;
-            font.pixelSize: 30
+            font.pixelSize: 8*u
         }
     }
 
