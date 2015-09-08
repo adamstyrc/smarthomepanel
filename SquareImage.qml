@@ -13,6 +13,7 @@ Item {
 //        width: (sourceSize.height > sourceSize.width) ? implicitWidth : imgFill * parent.width
         width: implicitWidth
         mipmap: true
+        antialiasing: true
 
     }
 

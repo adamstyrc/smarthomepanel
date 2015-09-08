@@ -7,8 +7,8 @@ Rectangle {
     color: Color.COMPONENT_BORDER
 
     Rectangle {
-        width: cardWidth - 2
-        height: cardWidth - 2
+        width: parent.width - 2
+        height: parent.height - 2
         anchors.centerIn: parent
         color: Color.COMPONENT_BACKGROUND
     }

@@ -59,5 +59,7 @@
         <file>img/line_rooms.png</file>
         <file>img/logo.png</file>
         <file>img/tab_triangle.png</file>
+        <file>img/icon_off.png</file>
+        <file>img/icon_on.png</file>
     </qresource>
 </RCC>
