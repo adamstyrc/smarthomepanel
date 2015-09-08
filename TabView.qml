@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import "Color.js" as Color
 Rectangle {
     id: tabView
@@ -27,7 +27,6 @@ Rectangle {
         anchors.top: topStripe.bottom
         anchors.left: tabView.left
         anchors.right: tabView.right
-
         anchors.bottom: bottomStripe.top
 
         Row {
@@ -60,9 +59,16 @@ Rectangle {
                         height: 2*u
                         width: parent.width
                         anchors.bottom: parent.bottom
-                        color: Color.BACKGROUND
+                        color: Color.LIGHT_GREEN
 
                         visible: selectedId == _id
+
+                        Image {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            height: parent.height
+                            source: "qrc:/img/img/tab_triangle.png"
+                            fillMode: Image.PreserveAspectFit
+                        }
                     }
 
                     MouseArea {

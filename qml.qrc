@@ -57,5 +57,6 @@
         <file>img/line_devices.png</file>
         <file>img/line_rooms.png</file>
         <file>img/logo.png</file>
+        <file>img/tab_triangle.png</file>
     </qresource>
 </RCC>
