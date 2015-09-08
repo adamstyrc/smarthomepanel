@@ -61,5 +61,6 @@
         <file>img/tab_triangle.png</file>
         <file>img/icon_off.png</file>
         <file>img/icon_on.png</file>
+        <file>img/icon_termometer.png</file>
     </qresource>
 </RCC>

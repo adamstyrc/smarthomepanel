@@ -50,8 +50,8 @@ Rectangle {
                          object.value = item.state === 1;
                      } else {
                          object = temperatureCard.createObject(grid);
+                         object._id = item._id;
                          object.name = item.name;
-                         console.log("ACHTUNG", item.name + " " + item.state);
                          object.value = item.state;
                      }
                  }
