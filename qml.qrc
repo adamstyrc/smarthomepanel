@@ -36,6 +36,7 @@
         <file>fonts/Nexa_bold.otf</file>
         <file>SquareImage.qml</file>
         <file>ShpLightText.qml</file>
+        <file>js/Utils.js</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>
