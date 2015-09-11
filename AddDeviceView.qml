@@ -78,7 +78,6 @@ Rectangle {
             Column {
                 id: form
                 anchors.top: parent.top
-//                anchors.topMargin: Dimension.SPACING*u
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.margins: Dimension.SPACING*u
