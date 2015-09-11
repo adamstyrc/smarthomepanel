@@ -32,7 +32,7 @@ Item {
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
             anchors.margins: Dimension.SPACING*u
-            source: Utils.pickIconForDevice(typeId, state)
+            source: Utils.pickIconForDevice(devicetype, deviceValue)
             fillMode: Image.PreserveAspectFit
             mipmap: true
         }
