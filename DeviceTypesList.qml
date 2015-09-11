@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import "Dimension.js" as Dimension
+import "js/Dimension.js" as Dimension
 
 Rectangle {
     color: "#5e5751"

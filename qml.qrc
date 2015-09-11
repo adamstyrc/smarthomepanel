@@ -18,15 +18,15 @@
         <file>NavigationBar.qml</file>
         <file>ListViewItem.qml</file>
         <file>DeviceListItem.qml</file>
-        <file>Color.js</file>
-        <file>Dimension.js</file>
-        <file>WebService.js</file>
+        <file>js/Color.js</file>
+        <file>js/Dimension.js</file>
+        <file>js/WebService.js</file>
         <file>SettingsView.qml</file>
         <file>Card.qml</file>
         <file>AddRoomView.qml</file>
         <file>AddDeviceView.qml</file>
         <file>ErrorBar.qml</file>
-        <file>Controller.js</file>
+        <file>js/Controller.js</file>
         <file>TabView.qml</file>
         <file>DeviceController.qml</file>
         <file>Progress.qml</file>

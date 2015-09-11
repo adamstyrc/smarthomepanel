@@ -1,7 +1,7 @@
 import QtQuick 2.5
 import QtQuick.Window 2.1
 import QtQuick.Layouts 1.1
-import "Color.js" as Color
+import "js/Color.js" as Color
 
 Rectangle {
     anchors.fill: parent

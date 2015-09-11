@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import "Color.js" as Color
+import "js/Color.js" as Color
 
 RefreshableView {
     anchors.fill: parent

@@ -1,6 +1,6 @@
 import QtQuick 2.0
-import "Color.js" as Color
-import "Dimension.js" as Dimension
+import "js/Color.js" as Color
+import "js/Dimension.js" as Dimension
 
 
 Item {

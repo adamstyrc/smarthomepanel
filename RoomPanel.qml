@@ -1,8 +1,8 @@
 import QtQuick 2.0
 import QtQuick.Window 2.1
 import QtQuick.Layouts 1.1
-import "Color.js" as Color
-import "WebService.js" as WebService
+import "js/Color.js" as Color
+import "js/WebService.js" as WebService
 
 Rectangle {
     id: root

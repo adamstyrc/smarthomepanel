@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
-import "Color.js" as Color
+import "js/Color.js" as Color
 
 Button {
     text: checked ? "On" : "Off"

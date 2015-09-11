@@ -1,6 +1,6 @@
 import QtQuick 2.5
-import "WebService.js" as WebService
-import "Dimension.js" as Dimension
+import "js/WebService.js" as WebService
+import "js/Dimension.js" as Dimension
 import "js/Utils.js" as Utils
 
 Rectangle {

@@ -1,5 +1,5 @@
 import QtQuick 2.5
-import "Color.js" as Color
+import "js/Color.js" as Color
 
 Rectangle {
     anchors.top: parent.top

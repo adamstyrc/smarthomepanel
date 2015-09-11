@@ -1,7 +1,7 @@
 import QtQuick 2.5
-import "Color.js" as Color
-import "Dimension.js" as Dimension
-import "WebService.js" as WebService
+import "js/Color.js" as Color
+import "js/Dimension.js" as Dimension
+import "js/WebService.js" as WebService
 import "js/Utils.js" as Utils
 
 

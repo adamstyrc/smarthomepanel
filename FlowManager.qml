@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import "Controller.js" as Controller
+import "js/Controller.js" as Controller
 
 Item {
     property string itemId: ""

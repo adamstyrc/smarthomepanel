@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import "WebService.js" as WebService
+import "js/WebService.js" as WebService
 
 Item {
     property string loadingDeviceId : "";

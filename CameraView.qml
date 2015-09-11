@@ -4,7 +4,7 @@ import QtMultimedia 5.0
 
 
 
-import "Color.js" as Color
+import "js/Color.js" as Color
 
 Rectangle {
     anchors.fill: parent
