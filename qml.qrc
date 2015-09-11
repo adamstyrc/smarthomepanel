@@ -32,8 +32,6 @@
         <file>Progress.qml</file>
         <file>RefreshableView.qml</file>
         <file>CameraView.qml</file>
-        <file>fonts/Nexa_light.otf</file>
-        <file>fonts/Nexa_bold.otf</file>
         <file>SquareImage.qml</file>
         <file>ShpLightText.qml</file>
         <file>js/Utils.js</file>
@@ -63,5 +61,9 @@
         <file>img/icon_off.png</file>
         <file>img/icon_on.png</file>
         <file>img/icon_termometer.png</file>
+    </qresource>
+    <qresource prefix="/font">
+        <file>fonts/Nexa_light.otf</file>
+        <file>fonts/Nexa_bold.otf</file>
     </qresource>
 </RCC>
