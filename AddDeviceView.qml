@@ -1,8 +1,9 @@
-import QtQuick 2.3
+import QtQuick 2.5
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
 import "js/Color.js" as Color
 import "js/WebService.js" as WebService
+import "js/Dimension.js" as Dimension
 
 
 Rectangle {
@@ -66,97 +67,137 @@ Rectangle {
             id: errorBar
         }
 
-        Grid {
-            columns: 1
-            spacing: 8
-            anchors.centerIn: parent
+        Rectangle {
+            id: formContainer
+            anchors.top: errorBar.bottom
+            anchors.topMargin: Dimension.SPACING*u
+            width: parent.width
+            height: form.height + 2*Dimension.SPACING*u
+            color: Color.COMPONENT_BACKGROUND
 
-            ShpLightText {
-                text: "Name"
-            }
+            Column {
+                id: form
+                anchors.top: parent.top
+//                anchors.topMargin: Dimension.SPACING*u
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.margins: Dimension.SPACING*u
+                spacing: Dimension.SPACING*u
 
-            TextField {
-                id: tfDeviceName
-                Layout.fillWidth: true
-            }
+                Row {
+                    width: parent.width
+                    height: 16*u
 
-            ShpLightText {
-                text: "Type"
-            }
+                    ShpLightText {
+                        id: txtDeviceName
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: "Name"
+                    }
 
-            ComboBox {
-              id: cbDeviceType
-              width: 64*u
-              model: ListModel {
-               id: types
-               ListElement { text: "Light"; _id: "1"}
-               ListElement { text: "Thermometer"; _id: "2"}
-             }
+                    TextField {
+                        id: tfDeviceName
+                        anchors.right: parent.right
+                        anchors.left: txtDeviceName.right
+                        anchors.leftMargin: Dimension.SPACING*u
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
 
-              onActivated: {
-                  var typeId = model.get(index)._id;
-                  console.log("onActivated " + index + " _id:" + typeId);
-              }
-            }
+                Row {
+                    width: parent.width
+                    height: 16*u
 
-            ShpLightText {
-                text: "Room"
-            }
+                    ShpLightText {
+                        id: txtDeviceType
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: "Type"
+                    }
 
-            ComboBox {
-              id: cbDeviceRoom
-              width: 64*u
-              model: rooms
+                    ComboBox {
+                      id: cbDeviceType
+                      anchors.right: parent.right
+                      anchors.left: txtDeviceType.right
+                      anchors.leftMargin: Dimension.SPACING*u
+                      anchors.verticalCenter: parent.verticalCenter
+                      model: ListModel {
+                            id: types
+                            ListElement { text: "Light"; _id: "1"}
+                            ListElement { text: "Thermometer"; _id: "2"}
+                      }
+                    }
+                }
 
-              ListModel {
-                  id: rooms
-                  ListElement { text: "Room"; _id: "0"}
-              }
+                Row {
+                    width: parent.width
+                    height: 16*u
 
-//              Component.onCompleted: {
-//                  WebService.getRooms(settings.hostname, function(resp) {
-//                      rooms.clear();
-//                      for(var i = 0; i < resp.length; i++) {
-//                          resp[i].text = resp[i].name;
-//                          rooms.append(resp[i]);
-//                          console.log(resp[i].name);
-//                      }
-//                  });
-//              }
+                    ShpLightText {
+                        id: txtDeviceRoom
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: "Room"
+                    }
 
-              onActivated: {
-                  var name = model.get(index).text;
-                  console.log("onActivated " + index + " _id:" + name);
+                    ComboBox {
+                      id: cbDeviceRoom
+                      anchors.right: parent.right
+                      anchors.left: txtDeviceRoom.right
+                      anchors.leftMargin: Dimension.SPACING*u
+                      anchors.verticalCenter: parent.verticalCenter
+                      model: rooms
 
-                  deviceController.selectedRoomIndex = index;
-              }
-            }
+                      ListModel {
+                          id: rooms
+                          ListElement { text: "Room"; _id: "0"}
+                      }
 
-            ShpLightText {
-                text: "IP"
-            }
+                      onActivated: {
+                          var name = model.get(index).text;
+                          console.log("onActivated " + index + " _id:" + name);
 
-            TextField {
-                id: tfDeviceIp
-                Layout.fillWidth: true
+                          deviceController.selectedRoomIndex = index;
+                      }
+                    }
+                }
+
+                Row {
+                    width: parent.width
+                    height: 16*u
+
+                    ShpLightText {
+                        id: txtDeviceAddress
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: "Address"
+                    }
+
+                    TextField {
+                        id: tfDeviceAddress
+                        anchors.right: parent.right
+                        anchors.left: txtDeviceAddress.right
+                        anchors.leftMargin: Dimension.SPACING*u
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
             }
 
             Rectangle {
-                width: 64*u
-                height: 16*u
-                color: "green"
+                anchors.top: formContainer.bottom
+                anchors.topMargin: Dimension.SPACING*u
+                width: parent.width
+                height: 32*u
+                color: confirmMouseArea.pressed ? Color.MENU_BACKGROUND : Color.COMPONENT_BACKGROUND
 
-                Text {
-                    text: "Confirm"
+                ShpLightText {
                     anchors.centerIn: parent
+                    text: "Confirm"
                 }
 
                 MouseArea {
+                    id: confirmMouseArea
                     anchors.fill: parent
                     onClicked: {
                         var device = deviceController.device;
                         device.name = tfDeviceName.text;
-                        device.ip = tfDeviceIp.text;
+                        device.ip = tfDeviceAddress.text;
                         var selectedType = types.get(cbDeviceType.currentIndex)
                         device.typeId = selectedType._id;
                         var selectedRoom = rooms.get(cbDeviceRoom.currentIndex)
