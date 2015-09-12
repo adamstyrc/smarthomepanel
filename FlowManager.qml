@@ -5,7 +5,6 @@ Item {
     property string itemId: ""
     property bool isTopLevel: true;
     property bool isTwoPane: (stackView.width / u) > 320;
-//    property bool isTwoPane: false;
 
     property int currentDepth : stackView.depth - 1;
 

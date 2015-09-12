@@ -18,8 +18,10 @@ Rectangle {
     }
 
     function fillData() {
+        var device = deviceController.device;
         tfDeviceName.text = deviceController.device.name;
-        tfDeviceIp.text = deviceController.device.ip;
+        tfDeviceAddress.text = deviceController.device.ip;
+//        tfDeviceAddress.text = "UUU";
 
         rooms.clear();
         var roomsList = deviceController.rooms;
