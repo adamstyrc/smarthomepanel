@@ -153,16 +153,6 @@ Rectangle {
         }
     }
 
-    onHeightChanged: {
-        console.log("onHeightChanged")
-//        adjustCardSize();
-    }
-
-    Component.onCompleted: {
-        console.log("onCompleted")
-//        adjustCardSize();
-    }
-
     function adjustCardSize() {
         var containerWidth = grid.parent.width;
         cardWidth = containerWidth / 3;

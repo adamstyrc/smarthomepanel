@@ -3,7 +3,7 @@ import QtQuick.Window 2.1
 import Qt.labs.settings 1.0
 import QtQuick.Controls 1.2
 
-Window {
+ApplicationWindow {
     id: root
     width: 600
     height: 600
@@ -95,12 +95,13 @@ Window {
         AddDeviceView {}
     }
 
+    Component.onCompleted: {
+        console.log("Screen: " + root.width + " | + " + Screen.width)
+    }
+
     DeviceController { id: deviceController }
 
     FontLoader{ id: nexaLight; source: "qrc:/font/fonts/Nexa_light.otf" }
     FontLoader{ id: nexaBold; source: "qrc:/font/fonts/Nexa_bold.otf" }
 
-    Component.onDestruction: {
-        console.log("hostname: " + settings.hostname);
-    }
 }

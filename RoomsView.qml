@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import "js/Color.js" as Color
+import "js/Dimension.js" as Dimension
 
 
 RefreshableView {
@@ -36,28 +37,34 @@ RefreshableView {
         }
 
         RoomsList {
+            id: roomsList
             anchors.left: parent.left
-            anchors.right: parent.right
+            width: (flowManager.isTwoPane ? Dimension.TWO_PANEL_LEFT_CONTAINER : 1) * parent.width
             anchors.top: errorBar.bottom
             anchors.bottom: parent.bottom
 
             color: Color.BACKGROUND
-            visible: flowManager.isTopLevel
+            visible: flowManager.isTopLevel || flowManager.isTwoPane
         }
 
         RoomPanel {
             id: roomPanel
-            anchors.left: parent.left
             anchors.right: parent.right
+            width: (flowManager.isTwoPane ? Dimension.TWO_PANEL_RIGHT_CONTAINER : 1) * parent.width
             anchors.top: errorBar.bottom
             anchors.bottom: parent.bottom
 
             color: Color.BACKGROUND
-            visible: !flowManager.isTopLevel
+            visible: !flowManager.isTopLevel || flowManager.isTwoPane
         }
     }
 
+    Component.onCompleted: {
+        console.log("Screen: " + root.width + " | + ")
+    }
+
     onRefreshUI: {
+        roomsList.refreshData();
         roomPanel.refresh();
     }
 }

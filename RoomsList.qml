@@ -20,6 +20,15 @@ Rectangle {
 
         ListViewItem {
             id: itemOfList
+
+            MouseArea {
+                id: mouseArea
+                anchors.fill: parent
+                onClicked: {
+                    flowManager.showItem(_id)
+                    roomPanel.refresh();
+                }
+            }
         }
     }
 

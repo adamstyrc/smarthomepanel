@@ -17,40 +17,12 @@ Item {
         width: parent.width
         height: parent.height
         anchors.centerIn: parent
-        color: mouseArea.pressed ? Color.PROGRESS : Color.COMPONENT_BACKGROUND
+        color: (mouseArea.pressed || flowManager.itemId === _id) ? Color.PROGRESS : Color.COMPONENT_BACKGROUND
 
         ShpLightText {
             anchors.centerIn: parent
             text: name;
             font.pixelSize: 8*u
-        }
-    }
-
-    MouseArea {
-        id: mouseArea
-        anchors.fill: parent
-        onClicked: flowManager.showItem(_id)
-
-        drag.target: listItem
-        drag.axis: Drag.XAxis
-        drag.minimumX: 0
-        drag.maximumX: listItem.width
-
-        onPressed: {
-            console.log("pressed");
-            dragged = true;
-//                    positionStarted =
-//                   listItem.opacity = 0.5;
-        }
-
-        onPressAndHold: {
-            console.log("pressedAndHold");
-        }
-
-        onReleased: {
-            console.log("released")
-            dragged = false;
-//                    listItem.opacity = 1;
         }
     }
 }

@@ -75,7 +75,9 @@ Rectangle {
 //        cardWidth = (containerWidth / columnsCount);
 //    }
 
-    onVisibleChanged: refresh();
+    Component.onCompleted: {
+        refresh();
+    }
 
     function refresh() {
         WebService.getDevicesForRoom(settings.hostname, flowManager.itemId,
