@@ -35,6 +35,8 @@
         <file>SquareImage.qml</file>
         <file>ShpLightText.qml</file>
         <file>js/Utils.js</file>
+        <file>ShpTextField.qml</file>
+        <file>ShpComboBox.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>
@@ -61,6 +63,7 @@
         <file>img/icon_off.png</file>
         <file>img/icon_on.png</file>
         <file>img/icon_termometer.png</file>
+        <file>img/icon_select.png</file>
     </qresource>
     <qresource prefix="/font">
         <file>fonts/Nexa_light.otf</file>

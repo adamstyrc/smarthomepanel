@@ -1,6 +1,7 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
+import QtQuick.Controls.Styles 1.4
 import "js/Color.js" as Color
 import "js/WebService.js" as WebService
 import "js/Dimension.js" as Dimension
@@ -51,9 +52,10 @@ Rectangle {
                         id: txtLogin
                         anchors.verticalCenter: parent.verticalCenter
                         text: "Login"
+                        width: Dimension.FORM_LABEL_WIDTH*u
                     }
 
-                    TextField {
+                    ShpTextField {
                         id: tfLogin
                         anchors.right: parent.right
                         anchors.left: txtLogin.right
@@ -73,10 +75,11 @@ Rectangle {
                     ShpLightText {
                         id: txtPassword
                         anchors.verticalCenter: parent.verticalCenter
+                        width: Dimension.FORM_LABEL_WIDTH*u
                         text: "Password"
                     }
 
-                    TextField {
+                    ShpTextField {
                         id: tfPassword
                         anchors.right: parent.right
                         anchors.left: txtPassword.right
@@ -97,10 +100,11 @@ Rectangle {
                     ShpLightText {
                         id: txtIp
                         anchors.verticalCenter: parent.verticalCenter
+                        width: Dimension.FORM_LABEL_WIDTH*u
                         text: "Ip"
                     }
 
-                    TextField {
+                    ShpTextField {
                         id: tfIp
                         anchors.right: parent.right
                         anchors.left: txtIp.right
@@ -117,10 +121,11 @@ Rectangle {
                     ShpLightText {
                         id: txtPort
                         anchors.verticalCenter: parent.verticalCenter
+                        width: Dimension.FORM_LABEL_WIDTH*u
                         text: "Port"
                     }
 
-                    TextField {
+                    ShpTextField {
                         id: tfPort
                         anchors.right: parent.right
                         anchors.left: txtPort.right

@@ -90,10 +90,11 @@ Rectangle {
                     ShpLightText {
                         id: txtDeviceName
                         anchors.verticalCenter: parent.verticalCenter
+                        width: Dimension.FORM_LABEL_WIDTH*u
                         text: "Name"
                     }
 
-                    TextField {
+                    ShpTextField {
                         id: tfDeviceName
                         anchors.right: parent.right
                         anchors.left: txtDeviceName.right
@@ -109,10 +110,11 @@ Rectangle {
                     ShpLightText {
                         id: txtDeviceType
                         anchors.verticalCenter: parent.verticalCenter
+                        width: Dimension.FORM_LABEL_WIDTH*u
                         text: "Type"
                     }
 
-                    ComboBox {
+                    ShpComboBox {
                       id: cbDeviceType
                       anchors.right: parent.right
                       anchors.left: txtDeviceType.right
@@ -133,10 +135,11 @@ Rectangle {
                     ShpLightText {
                         id: txtDeviceRoom
                         anchors.verticalCenter: parent.verticalCenter
+                        width: Dimension.FORM_LABEL_WIDTH*u
                         text: "Room"
                     }
 
-                    ComboBox {
+                    ShpComboBox {
                       id: cbDeviceRoom
                       anchors.right: parent.right
                       anchors.left: txtDeviceRoom.right
@@ -165,10 +168,11 @@ Rectangle {
                     ShpLightText {
                         id: txtDeviceAddress
                         anchors.verticalCenter: parent.verticalCenter
+                        width: Dimension.FORM_LABEL_WIDTH*u
                         text: "Address"
                     }
 
-                    TextField {
+                    ShpTextField {
                         id: tfDeviceAddress
                         anchors.right: parent.right
                         anchors.left: txtDeviceAddress.right

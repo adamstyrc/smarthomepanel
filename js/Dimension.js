@@ -1,2 +1,3 @@
 var SPACING = 6;
 var LIST_SPACING = 4;
+var FORM_LABEL_WIDTH = 40;
