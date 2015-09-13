@@ -38,6 +38,7 @@
         <file>ShpTextField.qml</file>
         <file>ShpComboBox.qml</file>
         <file>AlarmCard.qml</file>
+        <file>KettleCard.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="temperature_icon">img/temperature_icon.png</file>
@@ -67,6 +68,8 @@
         <file>img/icon_select.png</file>
         <file>img/icon_alarm_on.png</file>
         <file>img/icon_alarm_off.png</file>
+        <file>img/icon_kettle_on.png</file>
+        <file>img/icon_kettle_off.png</file>
     </qresource>
     <qresource prefix="/font">
         <file>fonts/Nexa_light.otf</file>

@@ -38,6 +38,7 @@ Rectangle {
                 var lightCard = Qt.createComponent("LightCard.qml");
                 var temperatureCard = Qt.createComponent("TemperatureCard.qml");
                 var alarmCard = Qt.createComponent("AlarmCard.qml");
+                var kettleCard = Qt.createComponent("KettleCard.qml");
 
                 for (var i = 0; i < devices.count; i++) {
                     var item = devices.get(i);
@@ -58,7 +59,7 @@ Rectangle {
                         object.value = item.state === 1;
                         break;
                     case WebService.KETTLE_TYPE_ID:
-                        object = alarmCard.createObject(grid);
+                        object = kettleCard.createObject(grid);
                         object.value = item.state === 1;
                         break;
                     }
