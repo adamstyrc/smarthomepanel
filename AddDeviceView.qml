@@ -21,7 +21,6 @@ Rectangle {
         var device = deviceController.device;
         tfDeviceName.text = deviceController.device.name;
         tfDeviceAddress.text = deviceController.device.ip;
-//        tfDeviceAddress.text = "UUU";
 
         rooms.clear();
         var roomsList = deviceController.rooms;

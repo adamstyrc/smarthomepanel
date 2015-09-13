@@ -1,4 +1,7 @@
-//var BASE = "";
+var LIGHT_TYPE_ID = "1";
+var TERMOMETER_TYPE_ID = "2";
+var ALARM_TYPE_ID = "3";
+var KETTLE_TYPE_ID = "4";
 
 function request(BASE, verb, endpoint, obj, onSuccess, onError) {
     print('request: ' + verb + ' ' + BASE + (endpoint ? ('/' + endpoint) : ''))

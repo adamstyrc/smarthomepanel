@@ -149,23 +149,23 @@ Rectangle {
                 text: "Confirm"
             }
 
-            MouseArea {
-                id: confirmMouseArea
-                anchors.fill: parent
-                onClicked: {
-                    WebService.getAuthenticated("http://" + tfIp.text + ":" + tfPort.text,
-                                                function(resp) {
-                                                    settings.ip = tfIp.text;
-                                                    settings.port = tfPort.text;
-                                                    errorBar.error = "";
-                                                    flowManager.goBack();
-                                                },
-                                                function(response) {
-                                                    console.log("error" + response);
-                                                    errorBar.error = response[0];
-                                                });
-                }
-            }
+MouseArea {
+    id: confirmMouseArea
+    anchors.fill: parent
+    onClicked: {
+        WebService.getAuthenticated("http://" + tfIp.text + ":" + tfPort.text,
+                                    function(resp) {
+                                        settings.ip = tfIp.text;
+                                        settings.port = tfPort.text;
+                                        errorBar.error = "";
+                                        flowManager.goBack();
+                                    },
+                                    function(response) {
+                                        console.log("error" + response);
+                                        errorBar.error = response[0];
+                                    });
+    }
+}
         }
     }
 }

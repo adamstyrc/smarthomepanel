@@ -25,22 +25,6 @@ Rectangle {
         }
     }
 
-//    Image {
-//        height: parent.height
-//        width: parent.height
-//        anchors.verticalCenter: parent.verticalCenter
-//        visible: stackView.depth > 1
-//        source: "qrc:/img/img/icon_up.png"
-//        fillMode: Image.Pad
-//        mipmap: true
-//        antialiasing: true
-
-//        MouseArea {
-//            anchors.fill: parent
-//            onClicked: flowManager.goBack();
-//        }
-//    }
-
     Text {
         anchors.centerIn: parent
         color: Color.WHITE

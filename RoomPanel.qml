@@ -37,23 +37,34 @@ Rectangle {
 
                 var lightCard = Qt.createComponent("LightCard.qml");
                 var temperatureCard = Qt.createComponent("TemperatureCard.qml");
+                var alarmCard = Qt.createComponent("AlarmCard.qml");
 
                 for (var i = 0; i < devices.count; i++) {
                     var item = devices.get(i);
 
                     var object;
 
-                     if (item.typeId == 1) {
-                         object = lightCard.createObject(grid);
-                         object._id = item._id;
-                         object.name = item.name;
-                         object.value = item.state === 1;
-                     } else {
-                         object = temperatureCard.createObject(grid);
-                         object._id = item._id;
-                         object.name = item.name;
-                         object.value = item.state;
-                     }
+                    switch(item.typeId) {
+                    case WebService.LIGHT_TYPE_ID:
+                        object = lightCard.createObject(grid);
+                        object.value = item.state === 1;
+                        break;
+                    case WebService.TERMOMETER_TYPE_ID:
+                        object = temperatureCard.createObject(grid);
+                        object.value = item.state;
+                        break;
+                    case WebService.ALARM_TYPE_ID:
+                        object = alarmCard.createObject(grid);
+                        object.value = item.state === 1;
+                        break;
+                    case WebService.KETTLE_TYPE_ID:
+                        object = alarmCard.createObject(grid);
+                        object.value = item.state === 1;
+                        break;
+                    }
+
+                    object._id = item._id;
+                    object.name = item.name;
                  }
             }
         }

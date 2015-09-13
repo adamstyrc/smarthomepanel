@@ -31,6 +31,5 @@ ComboBox {
             color: Color.LIGHT_GRAY
         }
     }
-
 }
 

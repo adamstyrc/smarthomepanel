@@ -1,4 +1,5 @@
 
+
 function pickIconForDevice(typeId, value) {
     switch (typeId) {
     case "1":

@@ -41,7 +41,7 @@ ApplicationWindow {
                 u = 6;
             }
 
-            console.log("u = " + u)
+            console.log(Screen.logicalPixelDensity + " -> u = " + u)
         }
         Keys.onSpacePressed: {
             flowManager.goBack();
