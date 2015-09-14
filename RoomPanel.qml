@@ -20,7 +20,7 @@ Rectangle {
 
             id: grid
 
-            ListModel {
+            DeviceListTest {
                 id: devices
             }
 
@@ -41,31 +41,32 @@ Rectangle {
                 var kettleCard = Qt.createComponent("KettleCard.qml");
 
                 for (var i = 0; i < devices.count; i++) {
-                    var item = devices.get(i);
+                    var device = devices.get(i);
 
                     var object;
 
-                    switch(item.typeId) {
+                    switch(device.typeId) {
                     case WebService.LIGHT_TYPE_ID:
                         object = lightCard.createObject(grid);
-                        object.value = item.state === 1;
+                        object.value = device.state === 1;
                         break;
                     case WebService.TERMOMETER_TYPE_ID:
                         object = temperatureCard.createObject(grid);
-                        object.value = item.state;
+//                        object.value = device.state;
+                        object.value = "23°C";
                         break;
                     case WebService.ALARM_TYPE_ID:
                         object = alarmCard.createObject(grid);
-                        object.value = item.state === 1;
+                        object.value = device.state === 1;
                         break;
                     case WebService.KETTLE_TYPE_ID:
                         object = kettleCard.createObject(grid);
-                        object.value = item.state === 1;
+                        object.value = device.state === 1;
                         break;
                     }
 
-                    object._id = item._id;
-                    object.name = item.name;
+                    object._id = device._id;
+                    object.name = device.name;
                  }
             }
         }

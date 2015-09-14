@@ -36,7 +36,7 @@ Item {
                 anchors.rightMargin: 6*u
                 anchors.topMargin: 6*u
                 font.pixelSize: 12*u
-                text: "34*C"
+                text: value
             }
 
             Image {
