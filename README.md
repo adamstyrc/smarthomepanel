@@ -9,3 +9,5 @@ Tested on:
 * Macbook Pro 13' (OS X)
 * Samsung Galaxy Tab S (Android L)
 * Nexus 5 (Android M)
+
+![rooms_tablet.jpg](https://bitbucket.org/repo/8okRMr/images/2847662665-rooms_tablet.jpg)
