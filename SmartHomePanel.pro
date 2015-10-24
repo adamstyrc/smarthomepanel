@@ -2,8 +2,7 @@ TEMPLATE = app
 
 QT += qml quick
 
-SOURCES += main.cpp \
-    navigationmanager.cpp
+SOURCES += main.cpp
 
 RESOURCES += qml.qrc
 

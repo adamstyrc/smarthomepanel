@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>listViewTest.qml</file>
         <file>RoomPanel.qml</file>
         <file>OnOffButton.qml</file>
         <file>DeviceListTest.qml</file>
